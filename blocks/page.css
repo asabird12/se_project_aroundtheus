@@ -8,3 +8,10 @@
   margin-right: 200px;
   margin-left: 200px;
 }
+
+@media screen and (max-width: 1440px) {
+  .page__content {
+    margin: 0 20px;
+    max-width: calc(100% - 40px);
+  }
+}

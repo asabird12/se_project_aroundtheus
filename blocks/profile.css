@@ -14,12 +14,15 @@
 .profile__info {
   display: grid;
   grid-template-areas: "title button";
-  max-width: 415px;
-  max-height: 77px;
+  grid-template-columns: minmax(auto, 375px) auto;
   margin-left: 30px;
   margin-top: 22px;
   margin-bottom: 21px;
   align-content: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 415px;
 }
 
 .profile__title {
@@ -44,6 +47,10 @@
   border-color: white;
 }
 
+.profile__edit-button:hover {
+  opacity: 0.6;
+}
+
 .profile__add-button {
   width: 150px;
   height: 50px;
@@ -54,4 +61,8 @@
   border-radius: 2px;
   border-style: solid;
   border-color: white;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
 }
