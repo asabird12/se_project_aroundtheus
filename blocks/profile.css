@@ -66,3 +66,48 @@
 .profile__add-button:hover {
   opacity: 0.6;
 }
+
+@media screen and (max-width: 320px) {
+  .profile {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 282px;
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+
+  .profile__info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 282px;
+    margin-bottom: 36px;
+    margin-left: 0;
+  }
+
+  .profile__title {
+    font-size: 22px;
+    line-height: 26.63px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .profile__subtitle {
+    align-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .profile__add-button {
+    margin: auto;
+    width: 282px;
+    margin-left: 19px;
+  }
+
+  .profile__edit-button {
+  }
+}

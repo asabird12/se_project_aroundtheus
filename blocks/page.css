@@ -20,11 +20,6 @@
 
 @media screen and (max-width: 320px) {
   .page__content {
-    margin: 0 19px;
-  }
-
-  .profile__info {
-    display: flex;
-    justify-content: center;
+    margin: 0;
   }
 }
