@@ -1,4 +1,4 @@
-.cards {
+.locations {
   padding: 0;
   margin: 0;
 }
@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-.cards__list {
+.locations__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
   list-style: none;
@@ -15,12 +15,14 @@
   padding: 0;
   padding-top: 51px;
   justify-content: center;
+  margin: 0;
 }
 
 .card__image {
   width: 282px;
   height: 282px;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .card__title {
@@ -28,9 +30,6 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29.05px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .card__description {
@@ -44,20 +43,25 @@
   padding-bottom: 25px;
   align-items: center;
   justify-content: space-between;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__like-button {
   height: 18px;
   width: 21px;
   background: transparent url(../images/like.svg) center no-repeat;
+  border: none;
 }
 
 .card__like-button:hover {
-  opacity: 0.6;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 320px) {
-  .cards__list {
+@media screen and (ma-width: 320px) {
+  .locations__list {
     padding-top: 215px;
   }
 }
