@@ -1,6 +1,6 @@
 .profile {
   max-width: 880px;
-  margin-top: 114px;
+  margin-top: 40px;
   display: flex;
 }
 
@@ -25,19 +25,14 @@
   font-size: 42px;
   line-height: 48px;
   margin: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   font-weight: 500;
+  width: 373px;
 }
 
 .profile__subtitle {
   font-size: 18px;
   line-height: 21.78px;
   margin: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   font-weight: 400;
 }
 
