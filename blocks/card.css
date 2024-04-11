@@ -1,21 +1,5 @@
-.locations {
-  padding: 0;
-  margin: 0;
-}
-
 .card {
   text-align: center;
-}
-
-.locations__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 282px);
-  list-style: none;
-  grid-gap: 20px 18px;
-  padding: 0;
-  padding-top: 51px;
-  justify-content: center;
-  margin: 0;
 }
 
 .card__image {
@@ -30,6 +14,9 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29.05px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card__description {
@@ -43,9 +30,6 @@
   padding-bottom: 25px;
   align-items: center;
   justify-content: space-between;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -60,10 +44,4 @@
 .card__like-button:hover {
   opacity: 0.5;
   cursor: pointer;
-}
-
-@media screen and (ma-width: 320px) {
-  .locations__list {
-    padding-top: 215px;
-  }
 }

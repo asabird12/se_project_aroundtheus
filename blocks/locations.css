@@ -1,0 +1,22 @@
+.locations__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 282px);
+  list-style: none;
+  grid-gap: 20px 18px;
+  padding: 0;
+  padding-top: 51px;
+  margin: 0;
+}
+
+.locations {
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 320px) {
+  .locations__list {
+    padding-top: 2px;
+    display: grid;
+    justify-content: start;
+  }
+}
