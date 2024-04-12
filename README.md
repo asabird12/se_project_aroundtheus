@@ -1,21 +1,21 @@
 # Project 3: Around The U.S.
 
-### Overview  
+### Overview
 
-* Intro  
-* Figma  
-* Images  
-  
+- Intro
+- Technologies and Techniques used
+- Images
+
 **Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+
+This is a project that is a responsive design website about the explorer Jacques-Cousteau and the places he has been to in the U.S. The website is designed for all major devices like laptops, tablets, and mobile devices. It is designed to apealling and attractive at all resolutions.
+
+**Technologies and Techniques used**
+In this project, I used the program Figma. This program gave me the templete and all the details I needed to complete this assignment by making a exact replicia of the templete. I achieved that by writing all the nessacary coded needed to achieve the replicia.
+
+Some techniques used were grid and flex display styles. Using both gird and flex displays allowed me to maintain the layouts needed at certain resolutions.
+
+**Images**
+
+**Github Link**
+https://github.com/asabird12/se_project_aroundtheus.git
