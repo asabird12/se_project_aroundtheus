@@ -15,7 +15,7 @@
   margin: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 620px) {
   .locations__list {
     padding-top: 2px;
     display: grid;
