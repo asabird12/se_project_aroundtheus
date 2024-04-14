@@ -2,11 +2,12 @@
   background-color: black;
   color: white;
   font-family: Inter, Arial, Helvetica, sans-serif;
+  margin: auto;
 }
 
 .page__content {
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 200px;
+  margin-left: 200px;
 }
 
 @media screen and (max-width: 800px) {

@@ -15,10 +15,13 @@
   .header__logo {
     margin: 0;
     padding-bottom: 32px;
+    padding-left: 8px;
+    width: 126px;
   }
 
   .header {
     padding-top: 28px;
     margin: 0;
+    height: 56px;
   }
 }

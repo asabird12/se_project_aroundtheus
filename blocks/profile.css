@@ -3,6 +3,7 @@
   margin-top: 40px;
   display: flex;
   margin: auto;
+  padding-top: 40px;
 }
 
 .profile__image {
@@ -85,7 +86,6 @@
     width: 282px;
     justify-content: center;
     margin-bottom: 36px;
-    margin-top: 42px;
   }
 
   .profile__info {
@@ -104,11 +104,17 @@
     white-space: nowrap;
     justify-content: center;
     display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .profile__subtitle {
     align-self: center;
     padding-bottom: 36px;
+    padding-top: 14px;
+    line-height: 16.94px;
+    font-size: 14px;
   }
 
   .profile__add-button {
