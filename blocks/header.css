@@ -15,7 +15,7 @@
   .header__logo {
     margin: 0;
     padding-bottom: 32px;
-    padding-left: 8px;
+    padding-left: 27px;
     width: 126px;
   }
 
@@ -23,5 +23,6 @@
     padding-top: 28px;
     margin: 0;
     height: 56px;
+    max-width: 100%;
   }
 }

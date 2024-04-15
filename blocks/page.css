@@ -15,7 +15,6 @@
 
 @media screen and (max-width: 620px) {
   .page__content {
-    margin-left: 19px;
-    margin-right: 19px;
+    margin: auto;
   }
 }

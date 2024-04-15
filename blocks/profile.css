@@ -1,6 +1,5 @@
 .profile {
   max-width: 880px;
-  margin-top: 40px;
   display: flex;
   margin: auto;
   padding-top: 40px;
@@ -85,7 +84,10 @@
     flex-wrap: wrap;
     width: 282px;
     justify-content: center;
-    margin-bottom: 36px;
+    padding-bottom: 36px;
+    padding-left: 19px;
+    padding-right: 19px;
+    margin: 0;
   }
 
   .profile__info {
