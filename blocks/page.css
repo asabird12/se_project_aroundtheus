@@ -6,4 +6,18 @@
 }
 
 .page__content {
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+@media screen and (max-width: 800px) {
+  .page__content {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .page__content {
+    margin: auto;
+  }
 }

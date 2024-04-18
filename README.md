@@ -19,3 +19,6 @@ Some techniques used were grid and flex display styles. Using both gird and flex
 
 **Github Link**
 https://asabird12.github.io/se_project_aroundtheus/
+
+**Video**
+https://drive.google.com/file/d/1GRUSbs2QIOvMEHkD8yDAIqHN9n47KUSK/view?usp=sharing
