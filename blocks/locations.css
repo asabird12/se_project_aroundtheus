@@ -7,7 +7,7 @@
   padding-top: 51px;
   margin: 0;
   max-width: 922px;
-  margin: auto;
+  margin-left: 200px;
 }
 
 .locations {
@@ -15,7 +15,7 @@
   margin: 0;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 800px) {
   .locations__list {
     margin: 0;
     padding: 0;
@@ -24,7 +24,4 @@
     display: grid;
     justify-content: start;
   }
-}
-
-@media screen and (max-width: 800px) {
 }
