@@ -3,6 +3,8 @@
   display: flex;
   margin: auto;
   padding-top: 40px;
+  padding-left: 19px;
+  padding-right: 19px;
 }
 
 .profile__image {
@@ -28,9 +30,6 @@
   margin: 0;
   font-weight: 500;
   max-width: 373px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .profile__subtitle {
@@ -39,9 +38,6 @@
   margin: 0;
   max-width: 415px;
   font-weight: 400;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .profile__edit-button {
