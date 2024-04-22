@@ -28,9 +28,8 @@
   font-size: 42px;
   line-height: 48px;
   margin: 0;
-  margin-right: 18px;
   font-weight: 500;
-  width: 373px;
+  max-width: 373px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
