@@ -15,10 +15,9 @@
   margin: 0;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 320px) {
   .cards__list {
     margin: 0;
-    margin-top: 51px;
     padding: 0;
     padding-left: 19px;
     padding-right: 19px;
@@ -26,12 +25,17 @@
   }
 
   .cards {
-    padding-left: 80px;
+    padding: 0;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 620px) {
   .cards {
-    padding: 0;
+    padding-left: 0;
+  }
+
+  .cards__list {
+    margin-top: 0;
+    padding-top: 0;
   }
 }

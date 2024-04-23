@@ -41,6 +41,9 @@
   margin: 0;
   max-width: 415px;
   font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile__edit-button {
@@ -104,9 +107,6 @@
     line-height: 26.63px;
     justify-content: center;
     display: flex;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .profile__subtitle {
