@@ -29,7 +29,7 @@
   line-height: 48px;
   margin: 0;
   font-weight: 500;
-  max-width: 373px;
+  max-width: 375px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -91,6 +91,7 @@
     padding-right: 19px;
     margin: 0;
     width: 100%;
+    box-sizing: border-box;
   }
 
   .profile__info {
@@ -137,5 +138,12 @@
 @media screen and (max-width: 800px) {
   .profile__add-button {
     margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    width: 282px;
+    margin-left: 19px;
   }
 }

@@ -15,7 +15,8 @@
   }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 320px) {
   .page__content {
+    width: 320px;
   }
 }
