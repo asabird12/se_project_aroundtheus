@@ -83,14 +83,11 @@
   .profile {
     flex-direction: row;
     flex-wrap: wrap;
-    width: 282px;
     justify-content: center;
     padding-bottom: 36px;
     padding-left: 19px;
     padding-right: 19px;
     margin: 0;
-    width: 100%;
-    box-sizing: border-box;
   }
 
   .profile__info {
@@ -142,7 +139,6 @@
 @media screen and (max-width: 320px) {
   .profile {
     width: 282px;
-    margin-left: 19px;
   }
 
   .profile__add-button {
