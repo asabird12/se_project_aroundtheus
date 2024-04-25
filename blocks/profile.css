@@ -144,4 +144,8 @@
   .profile__add-button {
     width: 282px;
   }
+
+  .profile__title {
+    width: 196px;
+  }
 }
