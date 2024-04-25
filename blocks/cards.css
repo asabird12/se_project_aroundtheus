@@ -17,8 +17,6 @@
 
 @media screen and (max-width: 320px) {
   .cards__list {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
   }
 

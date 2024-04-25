@@ -21,7 +21,6 @@
   margin-top: 22px;
   margin-bottom: 21px;
   align-content: center;
-  max-width: 415px;
 }
 
 .profile__title {
@@ -137,7 +136,6 @@
 
 @media screen and (max-width: 800px) {
   .profile__add-button {
-    margin-left: auto;
   }
 }
 
@@ -145,5 +143,9 @@
   .profile {
     width: 282px;
     margin-left: 19px;
+  }
+
+  .profile__add-button {
+    width: 282px;
   }
 }

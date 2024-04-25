@@ -46,3 +46,8 @@
   opacity: 0.5;
   cursor: pointer;
 }
+
+@media screen and (max-width: 320px) {
+  .card__description {
+  }
+}
