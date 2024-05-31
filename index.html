@@ -31,6 +31,15 @@
           <button class="profile__add-button" type="button"></button>
         </section>
         <section class="cards">
+          <template id="card">
+            <div class="card">
+              <img class="card__image" alt="card-location" />
+              <div class="card__description">
+                <p class="card__title"></p>
+                <button class="card__like-button" type="button"></button>
+              </div>
+            </div>
+          </template>
           <ul class="cards__list">
             <li class="card">
               <img
@@ -110,8 +119,20 @@
         <button class="modal__close"></button>
         <p class="modal__header">Edit profile</p>
         <form class="modal__form">
-          <input class="modal__input" type="text" name="title" />
-          <input class="modal__input" type="text" name="subtitle" />
+          <input
+            class="modal__input"
+            type="text"
+            id="profile-title-input"
+            name="title"
+            placeholder="Name"
+          />
+          <input
+            class="modal__input"
+            type="text"
+            id="profile-subtitle-input"
+            name="subtitle"
+            placeholder="About Me"
+          />
           <button class="modal__button">Save</button>
         </form>
       </div>

@@ -30,11 +30,31 @@ console.log(initialCards);
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileEditModal = document.querySelector(".modal");
 const profileModalButton = document.querySelector(".modal__close");
+const profileTitle = document.querySelector(".profile__title");
+const profileSubtitle = document.querySelector(".profile__subtitle");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileSubtitleInput = document.querySelector("#profile-subtitle-input");
+const profileFormElement = profileEditModal.querySelector(".modal__form");
+const nameInput = profileEditModal.querySelector("#profile-title-input");
+const jobInput = profileEditModal.querySelector("#profile-subtitle-input");
+const profileName = profileEditModal.querySelector(".profile__title");
+const profileJob = profileEditModal.querySelector(".profile__subtitle");
+const profileSave = profileEditModal.querySelector(".modal__button");
+const cardsTemplate = document.querySelector("#card");
 
 profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal_opened");
+  profileTitleInput.value = profileTitle.textContent;
+  profileSubtitleInput.value = profileSubtitle.textContent;
 });
 
 profileModalButton.addEventListener("click", () => {
+  profileEditModal.classList.remove("modal_opened");
+});
+
+profileFormElement.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileSubtitle.textContent = profileSubtitleInput.value;
   profileEditModal.classList.remove("modal_opened");
 });
