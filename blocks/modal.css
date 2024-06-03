@@ -27,9 +27,10 @@
   background-color: white;
   border-radius: 10px;
   margin: auto;
-  width: 430px;
+  width: 358px;
   height: 330px;
   padding-left: 36px;
+  padding-right: 36px;
 }
 
 .modal__form {
