@@ -27,12 +27,14 @@ const initialCards = [
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileEditModal = document.querySelector("#edit-modal");
-const profileModalButton = document.querySelector(".modal__close");
+const profileModalButton = document.querySelector("#edit-modal-close");
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileSubtitleInput = document.querySelector("#profile-subtitle-input");
-const profileFormElement = profileEditModal.querySelector(".modal__form");
+const profileFormElement = profileEditModal.querySelector(
+  "#modal-form-profile"
+);
 const nameInput = profileEditModal.querySelector("#profile-title-input");
 const jobInput = profileEditModal.querySelector("#profile-subtitle-input");
 const profileName = profileEditModal.querySelector(".profile__title");
@@ -42,6 +44,10 @@ const cardTemplate = document.querySelector("#card-template").content;
 const cardList = document.querySelector(".cards__list");
 const cardAddButton = document.querySelector(".profile__add-button");
 const cardAddModal = document.querySelector("#add-modal");
+const cardModalButton = document.querySelector("#add-modal-close");
+const cardFormElement = cardAddModal.querySelector("#modal-form-card");
+const cardTitleInput = cardAddModal.querySelector("#card-title-input");
+const cardImageInput = cardAddModal.querySelector("#card-image-link-input");
 
 profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal_opened");
@@ -73,6 +79,14 @@ function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageElement = cardElement.querySelector(".card__image");
   const cardTitleElement = cardElement.querySelector(".card__title");
+  const cardLikeButton = cardElement.querySelector(".card__like-button");
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+
+  cardDeleteButton.classList.add("card__delete-button");
+
+  cardLikeButton.addEventListener("click", () => {
+    cardLikeButton.classList.toggle("card__like-button_active");
+  });
 
   cardTitleElement.textContent = data.name;
   cardImageElement.src = data.link;
@@ -85,5 +99,18 @@ cardAddButton.addEventListener("click", () => {
 });
 
 function closeAddModal() {
-  cardAddButton.classList.remove("modal_opened");
+  cardAddModal.classList.remove("modal_opened");
 }
+
+cardModalButton.addEventListener("click", () => {
+  closeAddModal();
+});
+
+cardFormElement.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  const name = cardTitleInput.value;
+  const link = cardImageInput.value;
+  const cardElement = getCardElement(name, link);
+  cardList.prepend(cardElement);
+  closeAddModal();
+});

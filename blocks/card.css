@@ -38,13 +38,29 @@
 .card__like-button {
   height: 18px;
   width: 21px;
-  background: transparent url(../images/like.svg) center no-repeat;
+  background: transparent url(../images/likebuttondisabled.svg) center no-repeat;
   border: none;
 }
 
 .card__like-button:hover {
   opacity: 0.5;
   cursor: pointer;
+}
+
+.card__like-button_active {
+  background-image: url(../images/likebuttonactive.svg);
+}
+
+.card__delete-button {
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  border: none;
+  position: absolute;
+  width: 15.44px;
+  height: 13.51px;
+  top: 23.79px;
+  left: 250.28px;
+  right: 16.28px;
+  bottom: 244.7px;
 }
 
 @media screen and (max-width: 320px) {
