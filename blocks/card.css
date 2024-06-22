@@ -1,5 +1,6 @@
 .card {
   text-align: center;
+  position: relative;
 }
 
 .card__image {
@@ -55,11 +56,11 @@
   background: transparent url(../images/Trash.svg) center no-repeat;
   border: none;
   position: absolute;
-  width: 15.44px;
-  height: 13.51px;
-  top: 23.79px;
-  left: 250.28px;
-  right: 16.28px;
+  width: 18px;
+  height: 19.3px;
+  top: 18px;
+  left: 249px;
+  right: 15px;
   bottom: 244.7px;
 }
 
