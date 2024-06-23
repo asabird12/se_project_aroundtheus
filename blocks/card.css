@@ -10,6 +10,10 @@
   border-top-right-radius: 10px;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__title {
   margin: 0;
   font-weight: 900;
@@ -62,6 +66,11 @@
   left: 249px;
   right: 15px;
   bottom: 244.7px;
+}
+
+.card__delete-button:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 320px) {
