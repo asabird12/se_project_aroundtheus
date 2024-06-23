@@ -48,7 +48,6 @@ const cardModalButton = document.querySelector("#add-modal-close");
 const cardFormElement = cardAddModal.querySelector("#modal-form-card");
 const cardTitleInput = cardAddModal.querySelector("#card-title-input");
 const cardImageInput = cardAddModal.querySelector("#card-image-link-input");
-const cardImage = document.querySelector(".card__image");
 
 profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal_opened");
@@ -82,6 +81,9 @@ function getCardElement(data) {
   const cardTitleElement = cardElement.querySelector(".card__title");
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+  const popUpImage = document.querySelector(".card__image");
+  const popUpModal = document.querySelector("#popup-modal");
+  const popUpModalClose = document.querySelector("#popup-modal-close");
 
   cardDeleteButton.addEventListener("click", () => {
     cardElement.remove();
@@ -89,6 +91,16 @@ function getCardElement(data) {
 
   cardLikeButton.addEventListener("click", () => {
     cardLikeButton.classList.toggle("card__like-button_active");
+  });
+
+  cardImageElement.addEventListener("click", () => {
+    popUpModal.classList.add("modal_opened");
+    popUpImage.scr = data.link;
+    return popUpModal;
+  });
+
+  popUpModalClose.addEventListener("click", () => {
+    popUpModal.classList.remove("modal_opened");
   });
 
   cardTitleElement.textContent = data.name;
@@ -117,17 +129,3 @@ cardFormElement.addEventListener("submit", (evt) => {
   cardList.prepend(cardElement);
   closeAddModal();
 });
-
-function getCardImage(data) {
-  const cardImageModal = document.querySelector("#popup-modal");
-  const cardImageElement = cardElement.querySelector(".card__image");
-
-  getCardImage.addEventListener("click", () => {
-    cardImageModal.classList.add("modal-opened");
-    console.log("click");
-  });
-
-  cardImageElement.src = data.link;
-  cardImageElement.alt = data.name;
-  return cardImageElement;
-}
