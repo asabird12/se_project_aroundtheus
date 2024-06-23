@@ -95,8 +95,7 @@ function getCardElement(data) {
 
   cardImageElement.addEventListener("click", () => {
     popUpModal.classList.add("modal_opened");
-    popUpImage.scr = data.link;
-    return popUpModal;
+    popUpImage.scr = cardImageElement.src;
   });
 
   popUpModalClose.addEventListener("click", () => {
