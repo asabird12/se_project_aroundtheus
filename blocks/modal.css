@@ -81,6 +81,12 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.modal__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media screen and (max-width: 595px) {
   .modal__container {
     width: 282px;
