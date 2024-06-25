@@ -40,7 +40,9 @@ const jobInput = profileEditModal.querySelector("#profile-subtitle-input");
 const profileName = profileEditModal.querySelector(".profile__title");
 const profileJob = profileEditModal.querySelector(".profile__subtitle");
 const profileSave = profileEditModal.querySelector(".modal__button");
-const cardTemplate = document.querySelector("#card-template").content;
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
 const cardList = document.querySelector(".cards__list");
 const cardAddButton = document.querySelector(".profile__add-button");
 const cardAddModal = document.querySelector("#add-modal");
@@ -82,8 +84,9 @@ function getCardElement(data) {
   const cardTitleElement = cardElement.querySelector(".card__title");
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  const popUpImage = cardElement.querySelector(".card__image");
+  const popUpImage = document.querySelector(".modal__image");
   const popUpModal = document.querySelector("#popup-modal");
+  const popUpTitle = document.querySelector(".modal__title");
 
   cardDeleteButton.addEventListener("click", () => {
     cardElement.remove();
@@ -95,7 +98,8 @@ function getCardElement(data) {
 
   cardImageElement.addEventListener("click", () => {
     popUpModal.classList.add("modal_opened");
-    popUpImage.scr = data.link;
+    popUpImage.src = data.link;
+    popUpTitle.textContent = data.name;
   });
 
   popUpModalClose.addEventListener("click", () => {
