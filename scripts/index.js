@@ -93,7 +93,7 @@ function getCardElement(data) {
     cardLikeButton.classList.toggle("card__like-button_active");
   });
 
-  cardImageElement.addEventListener("click", (scr) => {
+  cardImageElement.addEventListener("click", () => {
     popUpModal.classList.add("modal_opened");
     popUpImage.scr = data.link;
   });
