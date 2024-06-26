@@ -102,13 +102,13 @@ function getCardElement(data) {
   });
 
   cardImageElement.addEventListener("click", () => {
-    popUpModal.classList.add("modal_opened");
+    openModal(popUpModal);
     popUpImage.src = data.link;
     popUpTitle.textContent = data.name;
   });
 
   popUpModalClose.addEventListener("click", () => {
-    popUpModal.classList.remove("modal_opened");
+    closeModal(popUpModal);
   });
 
   cardTitleElement.textContent = data.name;
@@ -118,11 +118,11 @@ function getCardElement(data) {
 }
 
 cardAddButton.addEventListener("click", () => {
-  openModal(modal);
+  openModal(cardAddModal);
 });
 
 cardModalButton.addEventListener("click", () => {
-  closeModal(modal);
+  closeModal(cardAddModal);
 });
 
 cardFormElement.addEventListener("submit", (evt) => {
