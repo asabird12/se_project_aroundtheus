@@ -51,26 +51,31 @@ const cardFormElement = cardAddModal.querySelector("#modal-form-card");
 const cardTitleInput = cardAddModal.querySelector("#card-title-input");
 const cardImageInput = cardAddModal.querySelector("#card-image-link-input");
 const popUpModalClose = document.querySelector("#popup-modal-close");
+const modal = document.querySelector(".modal");
 
-profileEditButton.addEventListener("click", () => {
-  profileEditModal.classList.add("modal_opened");
-  profileTitleInput.value = profileTitle.textContent;
-  profileSubtitleInput.value = profileSubtitle.textContent;
-});
-
-function closeProfileModal() {
-  profileEditModal.classList.remove("modal_opened");
+function openModal(modal) {
+  modal.classList.add("modal_opened");
 }
 
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+}
+
+profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileSubtitleInput.value = profileSubtitle.textContent;
+  openModal(modal);
+});
+
 profileModalButton.addEventListener("click", () => {
-  closeProfileModal();
+  closeModal(modal);
 });
 
 profileFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  closeProfileModal();
+  closeModal(modal);
 });
 
 initialCards.forEach((data) => {
@@ -113,22 +118,18 @@ function getCardElement(data) {
 }
 
 cardAddButton.addEventListener("click", () => {
-  cardAddModal.classList.add("modal_opened");
+  openModal(modal);
 });
 
-function closeAddModal() {
-  cardAddModal.classList.remove("modal_opened");
-}
-
 cardModalButton.addEventListener("click", () => {
-  closeAddModal();
+  closeModal(modal);
 });
 
 cardFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = cardTitleInput.value;
   const link = cardImageInput.value;
-  const cardElement = getCardElement(name, link);
+  const cardElement = getCardElement(data);
   cardList.prepend(cardElement);
   closeAddModal();
 });

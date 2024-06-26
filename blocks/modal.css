@@ -73,6 +73,9 @@
   height: 40px;
   top: -43px;
   right: -43px;
+}
+
+.modal__close:hover {
   cursor: pointer;
 }
 
@@ -93,6 +96,10 @@
   margin-top: 48px;
 }
 
+.modal__button:hover {
+  cursor: pointer;
+}
+
 .modal__input {
   margin-bottom: 13.26px;
   width: 358px;
@@ -103,6 +110,10 @@
   color: black;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal__input:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 595px) {
