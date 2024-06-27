@@ -51,7 +51,7 @@ const cardFormElement = cardAddModal.querySelector("#modal-form-card");
 const cardTitleInput = cardAddModal.querySelector("#card-title-input");
 const cardImageInput = cardAddModal.querySelector("#card-image-link-input");
 const popUpModalClose = document.querySelector("#popup-modal-close");
-const modal = document.querySelector(".modal");
+const profileModal = document.querySelector("#edit-modal");
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -64,11 +64,11 @@ function closeModal(modal) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileSubtitleInput.value = profileSubtitle.textContent;
-  openModal(modal);
+  openModal(profileModal);
 });
 
 profileModalButton.addEventListener("click", () => {
-  closeModal(modal);
+  closeModal(profileModal);
 });
 
 profileFormElement.addEventListener("submit", (evt) => {
@@ -90,7 +90,7 @@ function getCardElement(data) {
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
   const popUpImage = document.querySelector(".modal__image");
-  const popUpModal = document.querySelector("#popup-modal");
+  const previewModal = document.querySelector("#preview-modal");
   const popUpTitle = document.querySelector(".modal__title");
 
   cardDeleteButton.addEventListener("click", () => {
@@ -102,13 +102,14 @@ function getCardElement(data) {
   });
 
   cardImageElement.addEventListener("click", () => {
-    openModal(popUpModal);
+    openModal(previewModal);
     popUpImage.src = data.link;
+    popUpImage.alt = data.name;
     popUpTitle.textContent = data.name;
   });
 
   popUpModalClose.addEventListener("click", () => {
-    closeModal(popUpModal);
+    closeModal(previewModal);
   });
 
   cardTitleElement.textContent = data.name;
@@ -129,7 +130,7 @@ cardFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = cardTitleInput.value;
   const link = cardImageInput.value;
-  const cardElement = getCardElement(data);
+  const cardElement = getCardElement(cardList);
   cardList.prepend(cardElement);
-  closeAddModal();
+  closeModal(cardAddModal);
 });
