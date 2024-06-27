@@ -75,7 +75,7 @@ profileFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  closeModal(modal);
+  closeModal(profileModal);
 });
 
 initialCards.forEach((data) => {
