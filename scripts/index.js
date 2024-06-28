@@ -128,10 +128,10 @@ cardModalButton.addEventListener("click", () => {
 cardFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = cardTitleInput.value;
-  const image = cardImageInput.value;
-  const newCardElement = getCardElement(data);
-
-  cardList.prepend(newCardElement);
-  document.cardFormElement("#add-modal").reset();
+  const link = cardImageInput.value;
+  const cardData = { name, link };
+  const cardElement = getCardElement(cardData);
+  cardList.prepend(cardElement);
+  cardFormElement.reset();
   closeModal(cardAddModal);
 });
