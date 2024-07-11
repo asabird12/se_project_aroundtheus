@@ -119,6 +119,15 @@
   opacity: 0.8;
 }
 
+.modal__input_type_error {
+  border-bottom: 1px solid #f00;
+}
+
+.modal__error {
+  color: #f00;
+  font-size: 12px;
+}
+
 @media screen and (max-width: 595px) {
   .modal__container {
     width: 100%;

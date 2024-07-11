@@ -42,20 +42,27 @@
       <div class="modal__container">
         <button class="modal__close" id="edit-modal-close"></button>
         <h3 class="modal__header">Edit profile</h3>
-        <form class="modal__form" id="modal-form-profile">
+        <form class="modal__form" id="modal-form-profile" novalidate>
           <input
             class="modal__input"
             type="text"
             id="profile-title-input"
             name="title"
             placeholder="Name"
+            required
+            minlength="2"
+            maxlength="40"
           />
+          <span class="modal__error profile-title-input-error"></span>
           <input
             class="modal__input"
             type="text"
             id="profile-subtitle-input"
             name="subtitle"
             placeholder="About Me"
+            required
+            minlength="2"
+            maxlength="200"
           />
           <button class="modal__button" type="submit">Save</button>
         </form>
