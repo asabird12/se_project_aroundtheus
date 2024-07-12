@@ -141,17 +141,17 @@ cardFormElement.addEventListener("submit", (evt) => {
 const showError = (formInput, errorMessage) => {
   const errorElement = document.querySelector("#${formInput.id}-error");
 
-  formInput.classList.add("modal__input_type_error");
-  formInput.textContent = errorMessage;
-  formInput.classList.add("modal__error_active");
+  errorElement.classList.add("modal__input_type_error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("modal__error_active");
 };
 
 const hideError = (formInput) => {
   const errorElement = document.querySelector("#${formInput.id}-error");
 
-  formInput.classList.remove("modal__input_type_error");
-  formInput.classList.remove("modal__error_active");
-  formInput.textContent = "";
+  errorElement.classList.remove("modal__input_type_error");
+  errorElement.classList.remove("modal__error_active");
+  errorElement.textContent = "";
 };
 
 const checkInputValidity = () => {
