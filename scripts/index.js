@@ -170,7 +170,7 @@ formInput.addEventListener("input", function () {
   checkInputValidity();
 });
 
-const setEventListeners = (formElement) => {
+const setEventListeners = (formElement, formInput) => {
   const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
