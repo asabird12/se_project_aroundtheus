@@ -139,7 +139,7 @@ cardFormElement.addEventListener("submit", (evt) => {
 });
 
 const showError = (formInput, errorMessage) => {
-  const errorElement = document.querySelector("#${formInput.id}-error");
+  const errorElement = formInput.querySelector("#${formInput.id}-error");
 
   errorElement.classList.add("modal__error");
   errorElement.textContent = errorMessage;
@@ -147,7 +147,7 @@ const showError = (formInput, errorMessage) => {
 };
 
 const hideError = (formInput) => {
-  const errorElement = document.querySelector("#${formInput.id}-error");
+  const errorElement = formInput.querySelector("#${formInput.id}-error");
 
   errorElement.classList.remove("modal__error");
   errorElement.classList.remove("modal__error_active");
@@ -156,9 +156,9 @@ const hideError = (formInput) => {
 
 const checkInputValidity = () => {
   if (!formInput.validity.valid) {
-    showError(formInput, formInput.validationMessage);
+    showError(formElement, formInput, formInput.validationMessage);
   } else {
-    hideError(formInput);
+    hideError(formElement, formInput);
   }
 };
 
