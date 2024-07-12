@@ -138,11 +138,43 @@ cardFormElement.addEventListener("submit", (evt) => {
   closeModal(cardAddModal);
 });
 
+const showError = (formInput, errorMessage) => {
+  const errorElement = document.querySelector("#${formInput.id}-error");
+
+  formInput.classList.add("modal__input_type_error");
+  formInput.textContent = errorMessage;
+  formInput.classList.add("modal__error_active");
+};
+
+const hideError = (formInput) => {
+  const errorElement = document.querySelector("#${formInput.id}-error");
+
+  formInput.classList.remove("modal__input_type_error");
+  formInput.classList.remove("modal__error_active");
+  formInput.textContent = "";
+};
+
+const checkInputValidity = () => {
+  if (!formInput.validity.valid) {
+    showError(formInput, formInput.validationMessage);
+  } else {
+    hideError(formInput);
+  }
+};
+
+formElement.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+});
+
+formInput.addEventListener("input", function () {
+  checkInputValidity();
+});
+
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
-      checkInputValidity(formElement, inputElement);
+      checkInputValidity(formElement, formInput);
     });
   });
 };
@@ -166,32 +198,4 @@ enableValidation({
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
-});
-
-const showError = (formInput, errorMessage) => {
-  formInput.classList.add("modal__error");
-  formInput.textContent = errorMessage;
-  formInput.classList.add("modal__error_active");
-};
-
-const hideError = (formInput) => {
-  formInput.classList.remove(".modal__error");
-  formInput.classList.remove("modal__error_active");
-  formInput.textContent = "";
-};
-
-const checkInputValidity = () => {
-  if (!formInput.validity.valid) {
-    showError(formInput, formInput.validationMessage);
-  } else {
-    hideError(formInput);
-  }
-};
-
-formElement.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-});
-
-formInput.addEventListener("input", function () {
-  checkInputValidity();
 });
