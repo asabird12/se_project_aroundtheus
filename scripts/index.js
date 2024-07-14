@@ -51,8 +51,6 @@ const cardFormElement = cardAddModal.querySelector("#modal-form-card");
 const cardTitleInput = cardAddModal.querySelector("#card-title-input");
 const cardImageInput = cardAddModal.querySelector("#card-image-link-input");
 const popUpModalClose = document.querySelector("#popup-modal-close");
-const formElement = document.querySelector(".modal__form");
-const formInput = formElement.querySelector(".modal__input");
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -136,66 +134,4 @@ cardFormElement.addEventListener("submit", (evt) => {
   cardList.prepend(cardElement);
   cardFormElement.reset();
   closeModal(cardAddModal);
-});
-
-const showError = (formInput, errorMessage) => {
-  const errorElement = formInput.querySelector("#${formInput.id}-error");
-
-  errorElement.classList.add("modal__error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("modal__error_active");
-};
-
-const hideError = (formInput) => {
-  const errorElement = formInput.querySelector("#${formInput.id}-error");
-
-  errorElement.classList.remove("modal__error");
-  errorElement.classList.remove("modal__error_active");
-  errorElement.textContent = "";
-};
-
-const checkInputValidity = () => {
-  if (!formInput.validity.valid) {
-    showError(formElement, formInput, formInput.validationMessage);
-  } else {
-    hideError(formElement, formInput);
-  }
-};
-
-formElement.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-});
-
-formInput.addEventListener("input", function () {
-  checkInputValidity();
-});
-
-const setEventListeners = (formElement, formInput) => {
-  const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
-      checkInputValidity(formElement, formInput);
-    });
-  });
-};
-
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".modal__form"));
-
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
-
-    setEventListeners(formElement);
-  });
-};
-
-enableValidation({
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
 });

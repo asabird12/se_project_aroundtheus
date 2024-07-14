@@ -124,8 +124,21 @@
 }
 
 .modal__error {
+  font-size: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 400;
   color: #f00;
   font-size: 12px;
+  line-height: 14.52px;
+  width: 164px;
+  height: 12px;
+  top: calc(100% + 5px);
+  position: relative;
+  transition: opacity 0.3s;
+}
+
+.modal__button_disabled {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 595px) {
