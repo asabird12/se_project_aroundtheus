@@ -129,10 +129,7 @@
   color: #f00;
   font-size: 12px;
   line-height: 14.52px;
-  width: 164px;
-  height: 12px;
-  top: calc(100% + 5px);
-  position: relative;
+  position: absolute;
   transition: opacity 0.3s;
 }
 
