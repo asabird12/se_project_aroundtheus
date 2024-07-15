@@ -50,7 +50,7 @@ const cardModalButton = document.querySelector("#add-modal-close");
 const cardFormElement = cardAddModal.querySelector("#modal-form-card");
 const cardTitleInput = cardAddModal.querySelector("#card-title-input");
 const cardImageInput = cardAddModal.querySelector("#card-image-link-input");
-const popUpModalClose = document.querySelector("#popup-modal-close");
+const previewModalCloseButton = document.querySelector("#popup-modal-close");
 const allModals = document.querySelectorAll(".modal");
 
 function openModal(modal) {
@@ -125,7 +125,7 @@ function getCardElement(data) {
     popUpTitle.textContent = data.name;
   });
 
-  popUpModalClose.addEventListener("click", () => {
+  previewModalCloseButton.addEventListener("click", () => {
     closeModal(previewModal);
   });
 
