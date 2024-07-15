@@ -130,12 +130,18 @@
   font-size: 12px;
   line-height: 14.52px;
   position: absolute;
+  width: 358px;
   transition: opacity 0.3s;
 }
 
 .modal__button_disabled {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.2);
+}
+
+.modal__label {
+  position: relative;
+  width: 100%;
 }
 
 @media screen and (max-width: 595px) {
