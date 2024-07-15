@@ -63,8 +63,9 @@ function toogleButtonState(
 
 function setEventListners(formElement, options) {
   const { inputSelector } = options;
+  const { submitButtonSelector } = options;
   const inputElements = Array.from(formElement.querySelectorAll(inputSelector));
-  const submitButton = formElement.querySelector(".modal__button");
+  const submitButton = formElement.querySelector(submitButtonSelector);
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
       checkInputValidity(formElement, inputElement, options);
