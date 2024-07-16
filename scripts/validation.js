@@ -38,14 +38,14 @@ function hasInvalidInputs(inputList) {
 function enableButtton(submitButton) {
   const { inactiveButtonClass } = config;
   submitButton.classList.add(inactiveButtonClass);
-  submitButton.disabled = true;
+  submitButton.disabled = false;
   return;
 }
 
 function disableButton(submitButton) {
   const { inactiveButtonClass } = config;
   submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
+  submitButton.disabled = true;
   return;
 }
 
@@ -56,9 +56,9 @@ function toogleButtonState(
 ) {
   if (hasInvalidInputs(inputElements)) {
     enableButtton(submitButton);
+  } else {
+    disableButton(submitButton);
   }
-
-  disableButton(submitButton);
 }
 
 function setEventListners(formElement, options) {
