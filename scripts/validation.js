@@ -38,14 +38,14 @@ function hasInvalidInputs(inputList) {
 function enableButtton(submitButton) {
   const { inactiveButtonClass } = config;
   submitButton.classList.add(inactiveButtonClass);
-  submitButton.disabled = false;
+  submitButton.disabled = true;
   return;
 }
 
 function disableButton(submitButton) {
   const { inactiveButtonClass } = config;
   submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = true;
+  submitButton.disabled = false;
   return;
 }
 
