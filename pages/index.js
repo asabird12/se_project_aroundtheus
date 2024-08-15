@@ -1,3 +1,5 @@
+import Card from "./components/Card.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -153,3 +155,10 @@ cardFormElement.addEventListener("submit", (evt) => {
   cardFormElement.reset();
   closeModal(cardAddModal);
 });
+
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
+const card = newCard(cardData, "#card-template");
