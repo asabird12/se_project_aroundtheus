@@ -1,3 +1,46 @@
+export default class FormValidator {
+  constructor(settings, formElement) {
+    this._inputSelector = settings.inputSelector;
+    this._submitButtonSelector = settings.submitButtonSelector;
+    this._inactiveButtonClass = settings.inactiveButtonClass;
+    this._inputErrorClass = settings.inputErrorClass;
+    this.errorClass = settings.errorClass;
+    this._form = formElement;
+  }
+
+  toogleButtonState(this._inputElements, this._submitButton, { inactiveButtonClass }) {
+    if (hasInvalidInputs(this._inputElements)) {
+      enableButtton(this._submitButton);
+    } else {
+      disableButton(this._submitButton);
+    }
+  }
+  
+  hasInvalidInputs(this._inputSelector) {
+    return !this._inputSelector.every((inputElement) => this._inputElement)
+
+  _setEventListeners() {
+    this._inputElements = Array.from(
+      this._form.querySelectorAll(this._inputSelector)
+    );
+    this._submitButton = this._form.querySelector(this._submitButtonSelector);
+    inputElements.forEach((inputElement) => {
+      inputElement.addEventListener("input", (e) => {
+        checkInputValidity(this._form, this._inputElement, options);
+        toogleButtonState(inputElements, this._submitButton, options);
+      });
+    });
+  }
+
+  enableValidation() {
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+
+    setEventListners(formElement, options);
+  }
+};
+
 function showInputError(
   formElement,
   inputElement,
