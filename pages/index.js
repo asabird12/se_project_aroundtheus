@@ -162,9 +162,6 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = newCard(cardData, "#card-template");
-getCard();
-
 const validationSettings = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
