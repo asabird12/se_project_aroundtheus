@@ -161,3 +161,21 @@ const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
+
+const card = newCard(cardData, "#card-template");
+getCard();
+
+const validationSettings = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editElement = profileEditModal.querySelector(".modal__form");
+const addElement = cardAddModal.querySelector(".modal__form");
+const editFormValidator = new FormValidator(validationSettings, editElement);
+const cardFormValidator = new FormValidator(validationSettings, addElement);
+editFormValidator.enableValidation();
+cardFormValidator.enableValidation();
