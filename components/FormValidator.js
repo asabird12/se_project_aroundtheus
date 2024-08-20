@@ -31,28 +31,28 @@ export default class FormValidator {
     errorMessageElement.classList.remove(this._errorClass);
   }
 
-  checkInputValidity(form, inputSelector, options) {
+  checkInputValidity(form, inputSelector) {
     if (!this._inputSelector.validity.valid) {
-      return showInputError(this._form, this._inputSelector, options);
+      return showInputError(this._form, this._inputSelector);
     }
-    hideInputError(this._form, this._inputSelector, options);
+    hideInputError(this._form, this._inputSelector);
   }
 
   enableButtton(submitButtonSelector) {
-    const { inactiveButtonClass } = settings;
+    const { inactiveButtonClass } = this._inactiveButtonClass;
     this._submitButtonSelector.classList.add(this._inactiveButtonClass);
     this._submitButtonSelector.disabled = true;
     return;
   }
 
   disableButton(submitButtonSelector) {
-    const { inactiveButtonClass } = settings;
+    const { inactiveButtonClass } = this._inactiveButtonClass;
     this._submitButtonSelector.classList.remove(this._inactiveButtonClass);
     this._submitButtonSelector.disabled = false;
     return;
   }
 
-  toogleButtonState(inputSelector, submitButton, { inactiveButtonClass }) {
+  toogleButtonState(inputSelector, submitButton) {
     if (hasInvalidInputs(this._inputSelector)) {
       enableButtton(this._submitButton);
     } else {
@@ -65,10 +65,10 @@ export default class FormValidator {
       this._form.querySelectorAll(this._inputSelector)
     );
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
-    inputElements.forEach((inputElement) => {
-      inputElement.addEventListener("input", (e) => {
-        checkInputValidity(this._form, this._inputElement, options);
-        toogleButtonState(inputElements, this._submitButton, options);
+    this._inputElements.forEach((inputElement) => {
+      this._inputElement.addEventListener("input", (e) => {
+        this._checkInputValidity(this._form, this._inputElement);
+        this._toogleButtonState(this._inputElements, this._submitButton);
       });
     });
   }
@@ -78,6 +78,6 @@ export default class FormValidator {
       evt.preventDefault();
     });
 
-    this._setEventListners(this._form, rest);
+    this._setEventListners();
   }
 }
