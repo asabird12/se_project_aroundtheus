@@ -170,9 +170,10 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-const editElement = profileEditModal.querySelector(".modal__form");
-const addElement = cardAddModal.querySelector(".modal__form");
-const editFormValidator = new FormValidator(validationSettings, editElement);
-const cardFormValidator = new FormValidator(validationSettings, addElement);
+const editFormValidator = new FormValidator(
+  validationSettings,
+  profileEditModal
+);
+const cardFormValidator = new FormValidator(validationSettings, cardAddModal);
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
