@@ -172,8 +172,12 @@ const validationSettings = {
 
 const editFormValidator = new FormValidator(
   validationSettings,
-  profileEditModal
+  profileFormElement
 );
-const cardFormValidator = new FormValidator(validationSettings, cardAddModal);
+const cardFormValidator = new FormValidator(
+  validationSettings,
+  cardFormElement
+);
+
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
