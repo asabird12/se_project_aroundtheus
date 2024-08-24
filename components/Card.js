@@ -7,21 +7,22 @@ export default class Card {
   }
 
   _setEventListeners() {
-    const likeButton = this._cardSelector.querySelector(".card__like-button");
-    const deleteButton = this._cardSelector.querySelector(
+    this._likeButton = this._cardElement.querySelector(".card__like-button");
+    this._deleteButton = this._cardElement.querySelector(
       ".card__delete-button"
     );
+    this._cardImageElement = this._cardElement.querySelector(".card__image");
 
-    likeButton.addEventListener("click", () => {
+    this._likeButton.addEventListener("click", () => {
       likeButton.classList.toggle("card__like-button_active");
     });
 
-    deleteButton.addEventListener("click", () => {
+    this._deleteButton.addEventListener("click", () => {
       this._cardElement.remove();
     });
 
     this._cardImageElement.addEventListener("click", () => {
-      this._handleImageClick(this);
+      this._handleImageClick(cardData);
     });
   }
 

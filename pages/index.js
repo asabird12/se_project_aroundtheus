@@ -105,33 +105,8 @@ initialCards.forEach((data) => {
 });
 
 function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageElement = cardElement.querySelector(".card__image");
-  const cardTitleElement = cardElement.querySelector(".card__title");
-  const cardLikeButton = cardElement.querySelector(".card__like-button");
-  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  const popUpImage = document.querySelector(".modal__image");
-  const popUpTitle = document.querySelector(".modal__title");
-
-  cardDeleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-button_active");
-  });
-
-  cardImageElement.addEventListener("click", () => {
-    openModal(previewModal);
-    popUpImage.src = data.link;
-    popUpImage.alt = data.name;
-    popUpTitle.textContent = data.name;
-  });
-
-  cardTitleElement.textContent = data.name;
-  cardImageElement.src = data.link;
-  cardImageElement.alt = data.name;
-  return cardElement;
+  const card = new Card(data, "#card-template");
+  return card.getCard();
 }
 
 previewModalCloseButton.addEventListener("click", () => {
