@@ -3,7 +3,7 @@ export default class Card {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
-    this._handeImageClick = handleImageClick;
+    this._handleImageClick = handleImageClick;
   }
 
   _setEventListeners() {
@@ -21,9 +21,11 @@ export default class Card {
       this._cardElement.remove();
     });
 
-    this._cardImageElement.addEventListener("click", () => {
-      this._handleImageClick(cardData);
-    });
+    this._cardElement
+      .querySelector(".card__image")
+      .addEventListener("click", () => {
+        this._handleImageClick(this);
+      });
   }
 
   getCard() {
