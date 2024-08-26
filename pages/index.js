@@ -56,6 +56,13 @@ const cardImageInput = cardAddModal.querySelector("#card-image-link-input");
 const previewModalCloseButton = document.querySelector("#popup-modal-close");
 const allModals = document.querySelectorAll(".modal");
 const previewModal = document.querySelector("#preview-modal");
+const previewImage = document.querySelector(".modal__image");
+const previewTitle = document.querySelector(".modal__title");
+
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -104,8 +111,15 @@ initialCards.forEach((data) => {
   cardList.append(cardElement);
 });
 
+function handleImageClick(cardData) {
+  openModal(previewModal);
+  previewImage.src = cardData.link;
+  previewImage.alt = cardData.name;
+  previewTitle.textContent = cardData.name;
+}
+
 function getCardElement(data) {
-  const card = new Card(data, "#card-template");
+  const card = new Card(data, "#card-template", handleImageClick);
   return card.getCard();
 }
 
@@ -131,11 +145,6 @@ cardFormElement.addEventListener("submit", (evt) => {
   cardFormElement.reset();
   closeModal(cardAddModal);
 });
-
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
 
 const validationSettings = {
   inputSelector: ".modal__input",
