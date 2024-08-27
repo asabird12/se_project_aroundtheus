@@ -12,12 +12,6 @@ export default class FormValidator {
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
   }
 
-  _hasInvalidInputs() {
-    return !this._inputElements.every(
-      (inputElements) => inputElements.validity.valid
-    );
-  }
-
   _showInputError(inputElement) {
     const errorElement = this._form.querySelector(`#${inputElement.id}-error`);
 
@@ -40,6 +34,12 @@ export default class FormValidator {
       return this._showInputError(inputElements);
     }
     this._hideInputError(inputElements);
+  }
+
+  _hasInvalidInputs() {
+    return !this._inputElements.every(
+      (inputElements) => inputElements.validity.valid
+    );
   }
 
   toogleButtonState() {

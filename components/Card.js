@@ -14,7 +14,7 @@ export default class Card {
     this._cardImageElement = this._cardElement.querySelector(".card__image");
 
     this._likeButton.addEventListener("click", () => {
-      likeButton.classList.toggle("card__like-button_active");
+      this._likeButton.classList.toggle("card__like-button_active");
     });
 
     this._deleteButton.addEventListener("click", () => {
