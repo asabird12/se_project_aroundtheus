@@ -138,6 +138,7 @@ cardFormElement.addEventListener("submit", (evt) => {
   const cardElement = getCardElement(cardData);
   cardList.prepend(cardElement);
   cardFormElement.reset();
+  cardFormValidator.toggleButtonState();
   closeModal(cardAddModal);
 });
 
