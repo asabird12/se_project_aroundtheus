@@ -7,70 +7,23 @@ import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import * as constants from "../utils/constants.js";
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalEsc);
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalEsc);
-}
-
-function closeModalEsc(evt) {
-  if (evt.key === "Escape") {
-    const modalOpened = document.querySelector(".modal_opened");
-    closeModal(modalOpened);
-  }
-}
-
 constants.initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
   constants.cardList.append(cardElement);
 });
-
-const imagePopup = new PopupWithImage({
-  popupSelector: "#preview-modal",
-});
-
-imagePopup.setEventListeners();
 
 function handleImageClick(data) {
   //openModal(previewModal);
   // previewImage.src = data.link;
   // previewImage.alt = data.name;
   // previewTitle.textContent = data.name;
-  imagePopup.open(data);
+  popupImage.open(data);
 }
 
 function getCardElement(data) {
   const card = new Card(data, "#card-template", handleImageClick);
   return card.getCard();
 }
-
-previewModalCloseButton.addEventListener("click", () => {
-  closeModal(previewModal);
-});
-
-cardAddButton.addEventListener("click", () => {
-  openModal(cardAddModal);
-});
-
-cardModalButton.addEventListener("click", () => {
-  closeModal(cardAddModal);
-});
-
-cardFormElement.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const name = cardTitleInput.value;
-  const link = cardImageInput.value;
-  const cardData = { name, link };
-  const cardElement = getCardElement(cardData);
-  constants.cardList.prepend(cardElement);
-  constants.cardFormElement.reset();
-  cardFormValidator.toggleButtonState();
-  closeModal(cardAddModal);
-});
 
 const validationSettings = {
   inputSelector: ".modal__input",
@@ -82,11 +35,11 @@ const validationSettings = {
 
 const editFormValidator = new FormValidator(
   validationSettings,
-  profileFormElement
+  constants.profileFormElement
 );
 const cardFormValidator = new FormValidator(
   validationSettings,
-  cardFormElement
+  constants.cardFormElement
 );
 
 editFormValidator.enableValidation();
@@ -114,6 +67,7 @@ const profilePopup = new PopupWithForm({
   popupSelector: "#edit-modal",
   handleFormSubmit: (data) => {
     userProfileInfo.setUserInfo(data);
+    profilePopup.open();
     profilePopup.close();
   },
 });
@@ -124,8 +78,12 @@ const cardPopup = new PopupWithForm({
   popupSelector: "#add-modal",
   handleFormSubmit: (data) => {
     cardCreator.addItem(getCardElement(data));
+    cardPopup.open();
     cardPopup.close();
   },
 });
 
 cardPopup.setEventListeners();
+
+const popupImage = new PopupWithImage({ popupSelector: "#preview-modal" });
+popupImage.setEventListeners();
