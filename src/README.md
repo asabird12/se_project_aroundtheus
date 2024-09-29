@@ -22,3 +22,42 @@ https://asabird12.github.io/se_project_aroundtheus/
 
 **Video**
 https://drive.google.com/file/d/1GRUSbs2QIOvMEHkD8yDAIqHN9n47KUSK/view?usp=sharing
+
+const nameInput = profileEditModal.querySelector("#profile-title-input");
+const jobInput = profileEditModal.querySelector("#profile-subtitle-input");
+const profileName = profileEditModal.querySelector(".profile**title");
+const profileJob = profileEditModal.querySelector(".profile**subtitle");
+const profileSave = profileEditModal.querySelector(".modal\_\_button");
+const cardTemplate = document
+.querySelector("#card-template")
+.content.querySelector(".card");
+const previewImage = document.querySelector(".modal**image");
+const previewTitle = document.querySelector(".modal**title");
+const cardTitleInput = cardAddModal.querySelector("#card-title-input");
+const cardImageInput = cardAddModal.querySelector("#card-image-link-input");
+profileEditButton.addEventListener("click", () => {
+profileTitleInput.value = profileTitle.textContent;
+profileSubtitleInput.value = profileSubtitle.textContent;
+openModal(profileEditModal);
+});
+
+profileModalButton.addEventListener("click", () => {
+closeModal(profileEditModal);
+});
+
+profileFormElement.addEventListener("submit", (evt) => {
+evt.preventDefault();
+profileTitle.textContent = profileTitleInput.value;
+profileSubtitle.textContent = profileSubtitleInput.value;
+closeModal(profileEditModal);
+});
+
+allModals.forEach((modal) => {
+modal.addEventListener("click", (evt) => {
+if (evt.target.classList.contains("modal_opened")) {
+closeModal(modal);
+}
+});
+});
+
+const allModals = document.querySelectorAll(".modal");
