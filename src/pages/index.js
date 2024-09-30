@@ -63,34 +63,19 @@ const userProfileInfo = new UserInfo({
   profileJob: ".profile__subtitle",
 });
 
-const profilePopup = new PopupWithForm({
-  popupSelector: "#edit-modal",
-  handleFormSubmit: (data) => {
-    userProfileInfo.setUserInfo(data);
-    profilePopup.open();
-    profilePopup.close();
-  },
+const profilePopup = new PopupWithForm("#edit-modal", (data) => {
+  userProfileInfo.setUserInfo(data);
+  profilePopup.open();
+  profilePopup.close();
 });
-
 profilePopup.setEventListeners();
 
-const cardPopup = new PopupWithForm({
-  popupSelector: "#add-modal",
-  handleFormSubmit: (data) => {
-    cardCreator.addItem(getCardElement(data));
-    cardPopup.open();
-    cardPopup.close();
-  },
+const cardPopup = new PopupWithForm("#add-modal", (data) => {
+  cardCreator.addItem(getCardElement(data));
+  cardPopup.open();
+  cardPopup.close();
 });
-
 cardPopup.setEventListeners();
 
 const popupImage = new PopupWithImage({ popupSelector: "#preview-modal" });
 popupImage.setEventListeners();
-
-constants.profileEditButton.addEventListener("click", () => {
-  const formValues = userProfileInfo.getUserInfo();
-  constants.profileTitleInput.value = formValues.profileName;
-  constants.profileSubtitleInput.value = formValues.profileJob;
-  constants.profileEditModal.open();
-});
