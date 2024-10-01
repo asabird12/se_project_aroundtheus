@@ -79,3 +79,14 @@ cardPopup.setEventListeners();
 
 const popupImage = new PopupWithImage({ popupSelector: "#preview-modal" });
 popupImage.setEventListeners();
+
+function handleOpenCardPopup() {
+  cardPopup.open();
+}
+
+function handleOpenProfilePopup() {
+  profilePopup.open();
+}
+
+constants.cardAddButton.addEventListener("click", handleOpenCardPopup);
+constants.profileEditButton.addEventListener("click", handleOpenProfilePopup);
