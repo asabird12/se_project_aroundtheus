@@ -63,18 +63,26 @@ const userProfileInfo = new UserInfo({
   profileJob: ".profile__subtitle",
 });
 
-const profilePopup = new PopupWithForm("#edit-modal", (data) => {
-  userProfileInfo.setUserInfo(data);
-  profilePopup.open();
+function handleProfileSubmit(formValues) {
+  userProfileInfo.setUserInfo({
+    profileName: formValues.profileName,
+    profileJob: formValues.profileJob,
+  });
   profilePopup.close();
-});
+}
+
+function handleAddCardSubmit(formValues) {
+  const name = formValues.title;
+  const link = formValues.url;
+
+  const card = getCardElement(data);
+  constants.cardList.addItem(card);
+  cardPopup.close();
+}
+const profilePopup = new PopupWithForm("#edit-modal", handleProfileSubmit);
 profilePopup.setEventListeners();
 
-const cardPopup = new PopupWithForm("#add-modal", (data) => {
-  cardCreator.addItem(getCardElement(data));
-  cardPopup.open();
-  cardPopup.close();
-});
+const cardPopup = new PopupWithForm("#add-modal", handleAddCardSubmit);
 cardPopup.setEventListeners();
 
 const popupImage = new PopupWithImage({ popupSelector: "#preview-modal" });
@@ -88,5 +96,15 @@ function handleOpenProfilePopup() {
   profilePopup.open();
 }
 
-constants.cardAddButton.addEventListener("click", handleOpenCardPopup);
-constants.profileEditButton.addEventListener("click", handleOpenProfilePopup);
+constants.cardAddButton.addEventListener("click", () => {
+  cardFormValidator.toggleButtonState();
+  handleOpenCardPopup();
+  handleAddCardSubmit();
+});
+constants.profileEditButton.addEventListener("click", () => {
+  const formValues = userProfileInfo.getUserInfo();
+  constants.profileTitleInput.value = formValues.profileName;
+  constants.profileSubtitleInput.value = formValues.profileJob;
+  handleOpenProfilePopup();
+  handleProfileSubmit();
+});
