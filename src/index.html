@@ -68,7 +68,9 @@
             />
             <span class="modal__error" id="profile-subtitle-input-error"></span>
           </label>
-          <button class="modal__button" type="submit">Save</button>
+          <button class="modal__button" type="submit" id="profile-submit">
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -96,7 +98,7 @@
               type="url"
               required
               id="card-image-link-input"
-              name="image link"
+              name="url"
               placeholder="Image link"
             />
             <span class="modal__error" id="card-image-link-input-error"></span>
@@ -104,6 +106,7 @@
           <button
             class="modal__button modal__button_disabled"
             type="submit"
+            id="submit-button"
             disabled
           >
             Create

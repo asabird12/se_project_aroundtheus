@@ -7,11 +7,6 @@ import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import * as constants from "../utils/constants.js";
 
-constants.initialCards.forEach((data) => {
-  const cardElement = getCardElement(data);
-  constants.cardList.append(cardElement);
-});
-
 function handleImageClick(data) {
   //openModal(previewModal);
   // previewImage.src = data.link;
@@ -20,6 +15,10 @@ function handleImageClick(data) {
   popupImage.open(data);
 }
 
+function createCard(data) {
+  const cardElement = getCardElement(data);
+  cardCreator.addItem(cardElement);
+}
 function getCardElement(data) {
   const card = new Card(data, "#card-template", handleImageClick);
   return card.getCard();
@@ -64,19 +63,18 @@ const userProfileInfo = new UserInfo({
 });
 
 function handleProfileSubmit(formValues) {
-  userProfileInfo.setUserInfo({
-    profileName: formValues.profileName,
-    profileJob: formValues.profileJob,
-  });
+  const profileName = formValues.profileName;
+  const profileJob = formValues.profileJob;
+  userProfileInfo.setUserInfo({ profileName, profileJob });
   profilePopup.close();
 }
 
 function handleAddCardSubmit(formValues) {
   const name = formValues.title;
-  const link = formValues.url;
+  const link = formValues.link;
+  const data = { name, link };
 
-  const card = getCardElement(data);
-  constants.cardList.addItem(card);
+  createCard(data);
   cardPopup.close();
 }
 const profilePopup = new PopupWithForm("#edit-modal", handleProfileSubmit);
@@ -88,23 +86,12 @@ cardPopup.setEventListeners();
 const popupImage = new PopupWithImage({ popupSelector: "#preview-modal" });
 popupImage.setEventListeners();
 
-function handleOpenCardPopup() {
-  cardPopup.open();
-}
-
-function handleOpenProfilePopup() {
-  profilePopup.open();
-}
-
 constants.cardAddButton.addEventListener("click", () => {
-  cardFormValidator.toggleButtonState();
-  handleOpenCardPopup();
-  handleAddCardSubmit();
+  cardPopup.open();
 });
 constants.profileEditButton.addEventListener("click", () => {
   const formValues = userProfileInfo.getUserInfo();
   constants.profileTitleInput.value = formValues.profileName;
   constants.profileSubtitleInput.value = formValues.profileJob;
-  handleOpenProfilePopup();
-  handleProfileSubmit();
+  profilePopup.open();
 });

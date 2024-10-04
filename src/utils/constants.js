@@ -38,11 +38,13 @@ export const profileEditModal = document.querySelector("#edit-modal");
 export const profileFormElement = document.querySelector("#modal-form-profile");
 export const profileModalButton =
   profileEditModal.querySelector("#edit-modal-close");
+export const profileSubmitButton = document.querySelector("#profile-submit");
 
 export const cardAddModal = document.querySelector("#add-modal");
 export const cardFormElement = document.querySelector("#modal-form-card");
 export const cardAddButton = document.querySelector(".profile__add-button");
 export const cardModalButton = cardAddModal.querySelector("#add-modal-close");
+export const cardSubmitButton = document.querySelector("#submit-button");
 
 export const cardList = document.querySelector(".cards__list");
 export const previewModal = document.querySelector("#preview-modal");
