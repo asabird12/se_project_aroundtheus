@@ -2,7 +2,7 @@ export default class Section {
   constructor({ items, renderer }, cardSelector) {
     this._items = items;
     this._renderer = renderer;
-    this._cardSelector = cardSelector;
+    this._container = document.querySelector(cardSelector);
   }
 
   renderItems() {
@@ -14,7 +14,7 @@ export default class Section {
   }
 
   addItem(element) {
-    this._cardSelector.prepend(element);
+    this._container.prepend(element);
     //takes DOM element and adds it to the container
     //should be called when adding an individual card to the DOM
   }

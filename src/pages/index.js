@@ -47,12 +47,9 @@ cardFormValidator.enableValidation();
 const cardCreator = new Section(
   {
     items: constants.initialCards,
-    renderer: (item) => {
-      const cardElement = getCardElement(item);
-      cardCreator.addItem(cardElement);
-    },
+    renderer: createCard,
   },
-  constants.cardList
+  ".cards__list"
 );
 
 cardCreator.renderItems();
