@@ -65,6 +65,7 @@ function handleAddCardSubmit(formValues) {
 
   createCard(data);
   cardPopup.close();
+  cardFormValidator.disableButton();
 }
 const profilePopup = new PopupWithForm("#edit-modal", handleProfileSubmit);
 profilePopup.setEventListeners();
