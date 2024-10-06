@@ -50,3 +50,11 @@ export const cardList = document.querySelector(".cards__list");
 export const previewModal = document.querySelector("#preview-modal");
 export const previewModalCloseButton =
   previewModal.querySelector("#popup-modal-close");
+
+export const validationSettings = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};

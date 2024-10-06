@@ -24,20 +24,12 @@ function getCardElement(data) {
   return card.getCard();
 }
 
-const validationSettings = {
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
-
 const editFormValidator = new FormValidator(
-  validationSettings,
+  constants.validationSettings,
   constants.profileFormElement
 );
 const cardFormValidator = new FormValidator(
-  validationSettings,
+  constants.validationSettings,
   constants.cardFormElement
 );
 
@@ -85,10 +77,12 @@ popupImage.setEventListeners();
 
 constants.cardAddButton.addEventListener("click", () => {
   cardPopup.open();
+  cardPopup.resetValidation();
 });
 constants.profileEditButton.addEventListener("click", () => {
   const formValues = userProfileInfo.getUserInfo();
   constants.profileTitleInput.value = formValues.profileName;
   constants.profileSubtitleInput.value = formValues.profileJob;
   profilePopup.open();
+  profilePopup.resetValidation();
 });
