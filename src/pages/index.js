@@ -60,15 +60,15 @@ const userProfileInfo = new UserInfo({
 });
 
 function handleProfileSubmit(formValues) {
-  const profileName = formValues.profileName;
-  const profileJob = formValues.profileJob;
+  const profileName = formValues.title;
+  const profileJob = formValues.subtitle;
   userProfileInfo.setUserInfo({ profileName, profileJob });
   profilePopup.close();
 }
 
 function handleAddCardSubmit(formValues) {
   const name = formValues.title;
-  const link = formValues.link;
+  const link = formValues.url;
   const data = { name, link };
 
   createCard(data);
