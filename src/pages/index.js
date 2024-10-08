@@ -78,12 +78,10 @@ popupImage.setEventListeners();
 
 constants.cardAddButton.addEventListener("click", () => {
   cardPopup.open();
-  cardPopup.resetValidation();
 });
 constants.profileEditButton.addEventListener("click", () => {
   const formValues = userProfileInfo.getUserInfo();
   constants.profileTitleInput.value = formValues.profileName;
   constants.profileSubtitleInput.value = formValues.profileJob;
   profilePopup.open();
-  profilePopup.resetValidation();
 });
