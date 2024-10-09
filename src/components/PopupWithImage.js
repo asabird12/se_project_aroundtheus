@@ -16,10 +16,11 @@ export default class PopupWithImage extends Popup {
   }
 
   close() {
-    this._previewImage.src = "";
-    this._previewImage.alt = "";
-    this._previewTitle.textContent = "";
-
     super.close();
+    setTimeout(() => {
+      this._previewImage.src = "";
+      this._previewImage.alt = "";
+      this._previewTitle.textContent = "";
+    }, 500);
   }
 }
