@@ -21,6 +21,7 @@
             src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="jacques-cousteau"
             class="profile__image"
+            id="profile-avatar"
           />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
@@ -119,6 +120,46 @@
         <button class="modal__close" id="popup-modal-close"></button>
         <img class="modal__image" id="modal-image" src="" />
         <div class="modal__title"></div>
+      </div>
+    </div>
+    <div class="modal" id="delete-modal">
+      <div class="modal__container modal__container_delete">
+        <button
+          type="button"
+          class="modal__close"
+          id="delete-modal-btn"
+        ></button>
+        <h2 class="modal__header">Are you sure?</h2>
+        <button
+          type="submit"
+          class="modal__button modal__button_delete"
+          id="modal-delete-button"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+    <div class="modal" id="avatar-edit">
+      <div class="modal__container">
+        <button class="modal__close" id="avatar-edit-close"></button>
+        <h3 class="modal__header">Change profile picture</h3>
+        <form class="modal__form" id="modal-form-avatar">
+          <input
+            class="modal__input modal__input_avatar"
+            type="url"
+            id="avatar-input"
+            name="avatar"
+            placeholder="Link to new profile picture"
+            required
+          />
+          <span class="modal__error" id="avatar-input-error"></span>
+          <button
+            type="submit"
+            class="modal__button modal__button_disabled modal__button_avatar"
+          >
+            Save
+          </button>
+        </form>
       </div>
     </div>
     <template id="card-template">

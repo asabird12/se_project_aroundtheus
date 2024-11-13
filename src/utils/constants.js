@@ -58,3 +58,6 @@ export const validationSettings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+export const deleteModal = document.querySelector("#delete-modal");
+export const deleteButton = document.querySelector("#modal-delete-button");

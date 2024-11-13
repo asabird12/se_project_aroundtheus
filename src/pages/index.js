@@ -6,6 +6,15 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import * as constants from "../utils/constants.js";
+import Api from "../components/Api.js";
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "4e1a4a29-a169-4707-98f4-1db0defa237e",
+    "Content-Type": "application/json",
+  },
+});
 
 function handleImageClick(data) {
   //openModal(previewModal);
@@ -85,3 +94,25 @@ constants.profileEditButton.addEventListener("click", () => {
   constants.profileSubtitleInput.value = formValues.profileJob;
   profilePopup.open();
 });
+
+function openDeleteModal(cardElement, cardId) {
+  currentCard = cardElement;
+  currentCardId = cardId;
+  open(constants.deleteModal);
+}
+
+constants.deleteButton.addEventListener("click", () => {
+  constants.deleteModal.openDeleteModal();
+});
+
+const handleDeleteSubmit = (evt) => {
+  evt.preventDefault();
+  constants.deleteButton = evt.submitter;
+
+  api.deleteCard(currentCardId).then(() => {
+    currentCard.remove();
+    close(constants.deleteModal);
+  });
+};
+
+constants.deleteModal.addEventListener("submit", handleDeleteSubmit);
