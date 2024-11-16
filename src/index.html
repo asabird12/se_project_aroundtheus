@@ -123,20 +123,14 @@
       </div>
     </div>
     <div class="modal" id="delete-modal">
-      <div class="modal__container modal__container_delete">
-        <button
-          type="button"
-          class="modal__close"
-          id="delete-modal-btn"
-        ></button>
-        <h2 class="modal__header">Are you sure?</h2>
-        <button
-          type="submit"
-          class="modal__button modal__button_delete"
-          id="modal-delete-button"
-        >
-          Yes
-        </button>
+      <div class="modal__container">
+        <button class="modal__close" id="delete-modal-close"></button>
+        <form class="modal__form" id="modal-form-delete">
+          <h2 class="modal__header">Are you sure?</h2>
+          <button type="submit" class="modal__button" id="delete-submit">
+            Yes
+          </button>
+        </form>
       </div>
     </div>
     <div class="modal" id="avatar-edit">

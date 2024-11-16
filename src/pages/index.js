@@ -7,6 +7,7 @@ import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import * as constants from "../utils/constants.js";
 import Api from "../components/Api.js";
+import PopupwithDelete from "../components/PopupWithDelete.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -95,24 +96,18 @@ constants.profileEditButton.addEventListener("click", () => {
   profilePopup.open();
 });
 
-function openDeleteModal(cardElement, cardId) {
-  currentCard = cardElement;
-  currentCardId = cardId;
-  open(constants.deleteModal);
+function handleDeleteCard(card, cardId) {
+  deletePopup.setDeleteCard(() => {
+    api
+      .deleteCard({ cardId })
+      .then(() => {
+        card.close();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
 }
 
-constants.deleteButton.addEventListener("click", () => {
-  constants.deleteModal.openDeleteModal();
-});
-
-const handleDeleteSubmit = (evt) => {
-  evt.preventDefault();
-  constants.deleteButton = evt.submitter;
-
-  api.deleteCard(currentCardId).then(() => {
-    currentCard.remove();
-    close(constants.deleteModal);
-  });
-};
-
-constants.deleteModal.addEventListener("submit", handleDeleteSubmit);
+const deletePopup = new PopupwithDelete("#delete-modal", handleDeleteCard);
+deletePopup.setEventListeners();

@@ -1,6 +1,3 @@
-import { forEach } from "core-js/core/array";
-import { userSetter } from "core-js/fn/symbol";
-
 export default class Api {
   constructor(options) {
     //constructor body
