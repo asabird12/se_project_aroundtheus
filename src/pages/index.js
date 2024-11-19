@@ -30,7 +30,12 @@ function createCard(data) {
   cardCreator.addItem(cardElement);
 }
 function getCardElement(data) {
-  const card = new Card(data, "#card-template", handleImageClick);
+  const card = new Card(
+    data,
+    "#card-template",
+    handleImageClick,
+    handleDeleteCard
+  );
   return card.getCard();
 }
 
@@ -77,6 +82,9 @@ function handleAddCardSubmit(formValues) {
   cardPopup.close();
   cardFormValidator.disableButton();
 }
+
+//function handleFormSubmit(formValues) {}
+
 const profilePopup = new PopupWithForm("#edit-modal", handleProfileSubmit);
 profilePopup.setEventListeners();
 
@@ -97,6 +105,7 @@ constants.profileEditButton.addEventListener("click", () => {
 });
 
 function handleDeleteCard(card, cardId) {
+  deletePopup.open(card, cardId);
   deletePopup.setDeleteCard(() => {
     api
       .deleteCard({ cardId })

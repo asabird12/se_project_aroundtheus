@@ -1,9 +1,12 @@
+import { deleteButton } from "../utils/constants";
+
 export default class Card {
   constructor(cardData, cardSelector, handleImageClick) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
+    this._handleDeleteCard = handleDeleteCard;
   }
 
   _setEventListeners() {
@@ -12,7 +15,7 @@ export default class Card {
     });
 
     this._deleteButton.addEventListener("click", () => {
-      this._cardElement.remove();
+      this._handleDeleteCard(this._cardElement, this._cardElement.id);
     });
 
     this._cardImageElement.addEventListener("click", () => {

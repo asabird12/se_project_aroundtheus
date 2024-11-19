@@ -58,3 +58,5 @@ export const validationSettings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+export const deleteButton = document.querySelector("card__delete-button");
