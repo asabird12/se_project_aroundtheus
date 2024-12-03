@@ -9,6 +9,16 @@ import * as constants from "../utils/constants.js";
 import Api from "../components/Api.js";
 import PopupwithDelete from "../components/PopupWithDelete.js";
 
+const cardCreator = new Section(
+  {
+    items: constants.initialCards,
+    renderer: createCard,
+  },
+  ".cards__list"
+);
+
+cardCreator.renderItems();
+
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -16,6 +26,13 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+api
+  .getInitialCards()
+  .then((data) => {
+    cardCreator.renderItems(data);
+  })
+  .catch((err) => console.log(err));
 
 function handleImageClick(data) {
   //openModal(previewModal);
@@ -51,20 +68,22 @@ const cardFormValidator = new FormValidator(
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
 
-const cardCreator = new Section(
-  {
-    items: constants.initialCards,
-    renderer: createCard,
-  },
-  ".cards__list"
-);
-
-cardCreator.renderItems();
-
 const userProfileInfo = new UserInfo({
   profileName: ".profile__title",
   profileJob: ".profile__subtitle",
+  avatarImage: ".profile__image",
 });
+
+api
+  .getUserInfo()
+  .then((userId) => {
+    userProfileInfo.setUserInfo({
+      name: userId.profileName,
+      about: userId.profileJob,
+      avatar: userId.avatar,
+    });
+  })
+  .catch((err) => console.error(err));
 
 function handleProfileSubmit(formValues) {
   const profileName = formValues.title;
@@ -83,7 +102,26 @@ function handleAddCardSubmit(formValues) {
   cardFormValidator.disableButton();
 }
 
-//function handleFormSubmit(formValues) {}
+function handleAvatarEdit(formValues) {
+  changeProfilePopup.loadingState(true);
+
+  api
+    .avatarEdit(formValues.avatar)
+    .then((data) => {
+      userProfileInfo.updateUserAvatar(data.avatar);
+      changeProfilePopup.close();
+    })
+    .catch((err) => console.error(err))
+    .finally(() => {
+      changeProfilePopup.loadingState(false);
+    });
+}
+
+const changeProfilePopup = new PopupWithForm("#avatar-edit", handleAvatarEdit);
+changeProfilePopup.setEventListeners();
+constants.profileImage.addEventListener("click", () =>
+  changeProfilePopup.open()
+);
 
 const profilePopup = new PopupWithForm("#edit-modal", handleProfileSubmit);
 profilePopup.setEventListeners();
@@ -108,9 +146,10 @@ function handleDeleteCard(card, cardId) {
   deletePopup.open(card, cardId);
   deletePopup.setDeleteCard(() => {
     api
-      .deleteCard({ cardId })
+      .deleteCard({ card, cardId })
       .then(() => {
-        card.close();
+        card.remove();
+        deletePopup.close();
       })
       .catch((err) => {
         console.error(err);
@@ -120,3 +159,5 @@ function handleDeleteCard(card, cardId) {
 
 const deletePopup = new PopupwithDelete("#delete-modal", handleDeleteCard);
 deletePopup.setEventListeners();
+
+//function handleAvatarEdit() {}

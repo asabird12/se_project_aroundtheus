@@ -13,6 +13,11 @@
   border-radius: 50%;
 }
 
+.profile__image:hover {
+  opacity: 0.8;
+  background: url(../images/avataredit.svg) center no-repeat;
+}
+
 .profile__info {
   display: grid;
   grid-template-areas: "title button";
