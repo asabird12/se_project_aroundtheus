@@ -65,8 +65,14 @@ const cardFormValidator = new FormValidator(
   constants.cardFormElement
 );
 
+const avatarFormValidator = new FormValidator(
+  constants.validationSettings,
+  constants.avatarFormElement
+);
+
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
 
 const userProfileInfo = new UserInfo({
   profileName: ".profile__title",
@@ -76,11 +82,11 @@ const userProfileInfo = new UserInfo({
 
 api
   .getUserInfo()
-  .then((userId) => {
+  .then((data) => {
     userProfileInfo.setUserInfo({
-      name: userId.profileName,
-      about: userId.profileJob,
-      avatar: userId.avatar,
+      name: data.profileName,
+      about: data.profileJob,
+      avatar: data.avatar,
     });
   })
   .catch((err) => console.error(err));
@@ -111,7 +117,9 @@ function handleAvatarEdit(formValues) {
       userProfileInfo.updateUserAvatar(data.avatar);
       changeProfilePopup.close();
     })
-    .catch((err) => console.error(err))
+    .catch((err) => {
+      console.error(err);
+    })
     .finally(() => {
       changeProfilePopup.loadingState(false);
     });
@@ -119,7 +127,7 @@ function handleAvatarEdit(formValues) {
 
 const changeProfilePopup = new PopupWithForm("#avatar-edit", handleAvatarEdit);
 changeProfilePopup.setEventListeners();
-constants.profileImage.addEventListener("click", () =>
+constants.profileImageIcon.addEventListener("click", () =>
   changeProfilePopup.open()
 );
 

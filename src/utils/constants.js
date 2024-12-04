@@ -39,7 +39,7 @@ export const profileFormElement = document.querySelector("#modal-form-profile");
 export const profileModalButton =
   profileEditModal.querySelector("#edit-modal-close");
 export const profileSubmitButton = document.querySelector("#profile-submit");
-export const profileImage = document.querySelector("#profile-avatar");
+export const profileImageIcon = document.querySelector("#avatar-edit-icon");
 
 export const cardAddModal = document.querySelector("#add-modal");
 export const cardFormElement = document.querySelector("#modal-form-card");
@@ -48,9 +48,12 @@ export const cardModalButton = cardAddModal.querySelector("#add-modal-close");
 export const cardSubmitButton = document.querySelector("#submit-button");
 
 export const cardList = document.querySelector(".cards__list");
+
 export const previewModal = document.querySelector("#preview-modal");
 export const previewModalCloseButton =
   previewModal.querySelector("#popup-modal-close");
+
+export const avatarFormElement = document.querySelector("#modal-form-avatar");
 
 export const validationSettings = {
   inputSelector: ".modal__input",

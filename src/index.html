@@ -17,12 +17,19 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="jacques-cousteau"
-            class="profile__image"
-            id="profile-avatar"
-          />
+          <div class="profile__image-container">
+            <img
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="jacques-cousteau"
+              class="profile__image"
+              id="profile-avatar"
+            />
+            <button
+              class="profile__image-edit"
+              id="avatar-edit-icon"
+              type="button"
+            ></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button class="profile__edit-button" type="button"></button>
