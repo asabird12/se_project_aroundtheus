@@ -77,35 +77,53 @@ avatarFormValidator.enableValidation();
 const userProfileInfo = new UserInfo({
   profileName: ".profile__title",
   profileJob: ".profile__subtitle",
-  avatarImage: ".profile__image",
+  profileAvatar: ".profile__image",
 });
 
 api
   .getUserInfo()
   .then((data) => {
     userProfileInfo.setUserInfo({
-      name: data.profileName,
-      about: data.profileJob,
-      avatar: data.avatar,
+      profileName: data.name,
+      profileJob: data.about,
+      profileAvatar: data.avatar,
     });
   })
   .catch((err) => console.error(err));
 
 function handleProfileSubmit(formValues) {
-  const profileName = formValues.title;
-  const profileJob = formValues.subtitle;
-  userProfileInfo.setUserInfo({ profileName, profileJob });
-  profilePopup.close();
+  profilePopup.loadingState(true);
+
+  api
+    .getUserInfo({ name: formValues.name, about: formValues.about })
+    .then((updatedData) => {
+      userProfileInfo.setUserInfo({
+        name: updatedData.name,
+        job: updatedData.about,
+      });
+      profilePopup.close();
+    })
+    .catch((err) => console.error(err))
+    .finally(() => {
+      profilePopup.loadingState(false);
+    });
 }
 
 function handleAddCardSubmit(formValues) {
-  const name = formValues.title;
-  const link = formValues.url;
-  const data = { name, link };
+  cardPopup.loadingState(true);
 
-  createCard(data);
-  cardPopup.close();
-  cardFormValidator.disableButton();
+  const { title, url } = formValues;
+  api
+    .addNewCard({ name: title, link: url })
+    .then((newCard) => {
+      cardCreator.addItem(renderItems(newCard));
+      cardPopup.close();
+      cardFormValidator.disableButton();
+    })
+    .catch((err) => console.error(err))
+    .finally(() => {
+      cardPopup.loadingState(false);
+    });
 }
 
 function handleAvatarEdit(formValues) {
@@ -167,5 +185,3 @@ function handleDeleteCard(card, cardId) {
 
 const deletePopup = new PopupwithDelete("#delete-modal", handleDeleteCard);
 deletePopup.setEventListeners();
-
-//function handleAvatarEdit() {}

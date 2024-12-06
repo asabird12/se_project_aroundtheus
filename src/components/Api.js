@@ -17,9 +17,6 @@ export default class Api {
       headers: this._headers,
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
@@ -34,9 +31,6 @@ export default class Api {
       _id: "id",
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
@@ -52,9 +46,6 @@ export default class Api {
       }),
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
@@ -67,9 +58,6 @@ export default class Api {
       body: JSON.stringify({ name, about }),
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
@@ -82,9 +70,6 @@ export default class Api {
       body: JSON.stringify({ name, link }),
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
@@ -96,9 +81,6 @@ export default class Api {
       headers: this._headers,
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
@@ -110,9 +92,6 @@ export default class Api {
       headers: this._headers,
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
@@ -124,9 +103,6 @@ export default class Api {
       headers: this._headers,
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
@@ -139,9 +115,6 @@ export default class Api {
       body: JSON.stringify({ avatar }),
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
@@ -156,9 +129,6 @@ export default class Api {
       }),
     })
       .then(this._checkResponse)
-      .then((results) => {
-        console.log(results);
-      })
       .catch((err) => {
         console.error(err);
       });
