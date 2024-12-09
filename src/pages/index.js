@@ -95,11 +95,11 @@ function handleProfileSubmit(formValues) {
   profilePopup.loadingState(true);
 
   api
-    .getUserInfo({ name: formValues.name, about: formValues.about })
+    .updateUserInfo({ name: formValues.title, about: formValues.subtitle })
     .then((updatedData) => {
       userProfileInfo.setUserInfo({
-        name: updatedData.name,
-        job: updatedData.about,
+        profileName: updatedData.name,
+        profileJob: updatedData.about,
       });
       profilePopup.close();
     })
@@ -116,7 +116,7 @@ function handleAddCardSubmit(formValues) {
   api
     .addNewCard({ name: title, link: url })
     .then((newCard) => {
-      cardCreator.addItem(renderItems(newCard));
+      cardCreator.addItem(getCardElement(newCard));
       cardPopup.close();
       cardFormValidator.disableButton();
     })
