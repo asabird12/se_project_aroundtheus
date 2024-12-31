@@ -13,14 +13,14 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteCard = handleDeleteCard;
-    this.handleLikeButton = handleLikeButton;
+    this._handleLikeButton = handleLikeButton;
     this._userId = userId;
     this._isLiked = cardData.isLiked;
   }
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      this.handleLikeButton(this, this._id, this._isLiked);
+      this._handleLikeButton(this, this._id, this._isLiked);
     });
 
     this._deleteButton.addEventListener("click", () => {
