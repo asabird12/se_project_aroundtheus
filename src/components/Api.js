@@ -28,21 +28,17 @@ export default class Api {
       about: "about",
       avatar: "avatar",
       name: "name",
-      _id: "id",
-    })
-      .then(this._checkResponse)
-      .catch((err) => {
-        console.error(err);
-      });
+      _id: "c3b6b5608d9fb04be6edc2b0",
+    }).then(this._checkResponse);
   }
 
-  updateUserInfo() {
+  updateUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        profileName: name,
-        profileJob: about,
+        name: name,
+        about: about,
       }),
     })
       .then(this._checkResponse)
@@ -90,22 +86,14 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this._headers,
-    })
-      .then(this._checkResponse)
-      .catch((err) => {
-        console.error(err);
-      });
+    }).then(this._checkResponse);
   }
 
   unLike(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this._headers,
-    })
-      .then(this._checkResponse)
-      .catch((err) => {
-        console.error(err);
-      });
+    }).then(this._checkResponse);
   }
 
   avatarEdit(avatar) {
@@ -120,12 +108,12 @@ export default class Api {
       });
   }
 
-  updateUserAvatar(url) {
+  updateUserAvatar(data) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar: url,
+        avatar: data,
       }),
     })
       .then(this._checkResponse)

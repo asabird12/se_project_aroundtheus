@@ -11,13 +11,10 @@ import PopupwithDelete from "../components/PopupWithDelete.js";
 
 const cardCreator = new Section(
   {
-    items: constants.initialCards,
     renderer: createCard,
   },
   ".cards__list"
 );
-
-cardCreator.renderItems();
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -83,6 +80,7 @@ const userProfileInfo = new UserInfo({
 api
   .getUserInfo()
   .then((data) => {
+    console.log(">>USER DATA:", data);
     userProfileInfo.setUserInfo({
       profileName: data.name,
       profileJob: data.about,
@@ -132,7 +130,9 @@ function handleAvatarEdit(formValues) {
   api
     .avatarEdit(formValues.avatar)
     .then((data) => {
-      userProfileInfo.updateUserAvatar(data.avatar);
+      userProfileInfo.updateUserAvatar({
+        profileAvatar: data.avatar,
+      });
       changeProfilePopup.close();
     })
     .catch((err) => {
@@ -172,9 +172,9 @@ function handleDeleteCard(card, cardId) {
   deletePopup.open(card, cardId);
   deletePopup.setDeleteCard(() => {
     api
-      .deleteCard({ card, cardId })
+      .deleteCard(cardId)
       .then(() => {
-        card.remove();
+        card.handleDeleteCard();
         deletePopup.close();
       })
       .catch((err) => {
@@ -185,3 +185,14 @@ function handleDeleteCard(card, cardId) {
 
 const deletePopup = new PopupwithDelete("#delete-modal", handleDeleteCard);
 deletePopup.setEventListeners();
+
+function handleLikeButton(card, cardId) {
+  api
+    .addLike(cardId)
+    .then(() => {
+      card.handleLikeButton();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}

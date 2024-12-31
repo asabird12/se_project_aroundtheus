@@ -13,18 +13,18 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteCard = handleDeleteCard;
-    this._handleLikeButton = handleLikeButton;
+    this.handleLikeButton = handleLikeButton;
     this._userId = userId;
     this._isLiked = cardData.isLiked;
   }
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      this._handleLikeButton(this, this._id, this._isLiked);
+      this.handleLikeButton(this, this._id, this._isLiked);
     });
 
     this._deleteButton.addEventListener("click", () => {
-      this._handleDeleteCard(this._id);
+      this._handleDeleteCard(this, this._id);
     });
 
     this._cardImageElement.addEventListener("click", () => {
@@ -50,11 +50,16 @@ export default class Card {
     return this._cardElement;
   }
 
-  likedByUser() {
-    return this._isLiked;
+  handleLikeButton() {
+    this._likeButton.classList.toggle("card__like-button_active");
   }
 
-  _handleLikeButton() {
-    this._likeButton.classList.toggle("card__like-button_active");
+  _likedByUser() {
+    return this._isLiked.some((like) => like.id === this._userId);
+  }
+
+  handleDeleteCard() {
+    this._cardElement.remove();
+    this._cardElement = null;
   }
 }
