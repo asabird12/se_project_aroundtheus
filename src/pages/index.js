@@ -48,7 +48,8 @@ function getCardElement(data) {
     data,
     "#card-template",
     handleImageClick,
-    handleDeleteCard
+    handleDeleteCard,
+    handleLikeButton
   );
   return card.getCard();
 }
