@@ -131,7 +131,7 @@ function handleAvatarEdit(formValues) {
   api
     .avatarEdit(formValues.avatar)
     .then((data) => {
-      userProfileInfo.updateUserAvatar({
+      userProfileInfo.setUserInfo({
         profileAvatar: data.avatar,
       });
       changeProfilePopup.close();
