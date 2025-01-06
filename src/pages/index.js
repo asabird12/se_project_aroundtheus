@@ -127,12 +127,12 @@ function handleAddCardSubmit(formValues) {
 
 function handleAvatarEdit(formValues) {
   changeProfilePopup.loadingState(true);
-
+  console.log(formValues);
   api
-    .avatarEdit(formValues.avatar)
-    .then((data) => {
-      userProfileInfo.setUserInfo({
-        profileAvatar: data.avatar,
+    .avatarEdit(formValues)
+    .then((updatedData) => {
+      userProfileInfo.setUserAvatar({
+        profileAvatar: updatedData.avatar,
       });
       changeProfilePopup.close();
     })
@@ -187,11 +187,12 @@ function handleDeleteCard(card, cardId) {
 const deletePopup = new PopupwithDelete("#delete-modal", handleDeleteCard);
 deletePopup.setEventListeners();
 
-function handleLikeButton(card, cardId) {
+function handleLikeButton(cardId, isLiked) {
+  console.log(isLiked);
   api
-    .addLike(cardId)
+    .setLikedStatus(cardId, isLiked)
     .then(() => {
-      card.handleLikeButton();
+      cardId.handleLikeButton();
     })
     .catch((err) => {
       console.error(err);

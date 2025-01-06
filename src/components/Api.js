@@ -96,11 +96,12 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  avatarEdit(avatar) {
+  avatarEdit({ avatar }) {
+    console.log(avatar);
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({ avatar }),
+      body: JSON.stringify({ avatar: avatar }),
     })
       .then(this._checkResponse)
       .catch((err) => {
@@ -108,7 +109,7 @@ export default class Api {
       });
   }
 
-  updateUserAvatar(data) {
+  updateUserAvatar({ data }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
@@ -120,5 +121,22 @@ export default class Api {
       .catch((err) => {
         console.error(err);
       });
+  }
+
+  setLikedStatus(cardId, isLiked) {
+    console.log(cardId);
+    if (isLiked) {
+      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+        method: "PUT",
+        headers: this._headers,
+        body: JSON.stringify({ isLiked }),
+      }).then(this._checkResponse);
+    } else {
+      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+        method: "DELETE",
+        headers: this._headers,
+        body: JSON.stringify({ isLiked }),
+      }).then(this._checkResponse);
+    }
   }
 }

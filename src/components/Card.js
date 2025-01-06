@@ -51,7 +51,20 @@ export default class Card {
   }
 
   handleLikeButton() {
-    this._likeButton.classList.toggle("card__like-button_active");
+    this.renderLike();
+  }
+
+  renderLike() {
+    if (this._isLiked) {
+      this._likeButton.classList.add("card__like-button_active");
+    } else {
+      this._likeButton.classList.remove("card__like-button_active");
+    }
+  }
+
+  setLiked(isLiked) {
+    this._isLiked = isLiked;
+    this.renderLike();
   }
 
   _likedByUser() {
