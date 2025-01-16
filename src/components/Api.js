@@ -82,18 +82,15 @@ export default class Api {
       });
   }
 
-  addLike(cardId) {
+  changeLikeCardStatus(cardId, isLiked) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: "PUT",
+      method: isLiked ? "PUT" : "DELETE",
       headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  unLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then(this._checkResponse);
+    })
+      .then(this._checkResponse)
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   avatarEdit({ avatar }) {
@@ -121,22 +118,5 @@ export default class Api {
       .catch((err) => {
         console.error(err);
       });
-  }
-
-  setLikedStatus(cardId, isLiked) {
-    console.log(cardId);
-    if (isLiked) {
-      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-        method: "PUT",
-        headers: this._headers,
-        body: JSON.stringify({ isLiked }),
-      }).then(this._checkResponse);
-    } else {
-      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-        method: "DELETE",
-        headers: this._headers,
-        body: JSON.stringify({ isLiked }),
-      }).then(this._checkResponse);
-    }
   }
 }

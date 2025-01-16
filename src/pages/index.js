@@ -32,10 +32,6 @@ api
   .catch((err) => console.log(err));
 
 function handleImageClick(data) {
-  //openModal(previewModal);
-  // previewImage.src = data.link;
-  // previewImage.alt = data.name;
-  // previewTitle.textContent = data.name;
   popupImage.open(data);
 }
 
@@ -187,12 +183,16 @@ function handleDeleteCard(card, cardId) {
 const deletePopup = new PopupwithDelete("#delete-modal", handleDeleteCard);
 deletePopup.setEventListeners();
 
-function handleLikeButton(cardId, isLiked) {
-  console.log(isLiked);
+function handleLikeButton(card, cardId, isLiked) {
+  console.log(card);
+  console.log(cardId);
+
   api
-    .setLikedStatus(cardId, isLiked)
+    .changeLikeCardStatus(cardId, isLiked)
     .then(() => {
-      cardId.handleLikeButton();
+      card.updateLike();
+      //card.isLiked();
+      //card.getId();
     })
     .catch((err) => {
       console.error(err);
