@@ -186,13 +186,11 @@ deletePopup.setEventListeners();
 function handleLikeButton(card, cardId, isLiked) {
   console.log(card);
   console.log(cardId);
-
+  console.log(isLiked);
   api
     .changeLikeCardStatus(cardId, isLiked)
     .then(() => {
       card.updateLike();
-      //card.isLiked();
-      //card.getId();
     })
     .catch((err) => {
       console.error(err);

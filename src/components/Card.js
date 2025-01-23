@@ -20,7 +20,7 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      this._handleLikeButton(this._id, this._isLiked);
+      this._handleLikeButton(this, this._id, this._isLiked);
     });
 
     this._deleteButton.addEventListener("click", () => {
@@ -62,8 +62,18 @@ export default class Card {
     return this._id;
   }
 
+  setUserId() {
+    return this._userId;
+  }
+
   handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
+  }
+
+  handleLikeButton() {
+    this.updateLike;
+    this.isLiked();
+    this.getId();
   }
 }
