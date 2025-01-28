@@ -121,11 +121,12 @@ function handleAddCardSubmit(formValues) {
     });
 }
 
-function handleAvatarEdit(formValues) {
+function handleAvatarEdit(evt) {
+  evt.preventDefault();
   changeProfilePopup.loadingState(true);
-  console.log(formValues);
+  console.log(data);
   api
-    .avatarEdit(formValues)
+    .avatarEdit(data)
     .then((updatedData) => {
       userProfileInfo.setUserAvatar({
         profileAvatar: updatedData.avatar,
@@ -191,6 +192,15 @@ function handleLikeButton(card, cardId, isLiked) {
     .changeLikeCardStatus(cardId, isLiked)
     .then(() => {
       card.updateLike();
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  api
+    .updateUserLike(isLiked)
+    .then(() => {
+      card.setUserId();
     })
     .catch((err) => {
       console.error(err);

@@ -86,15 +86,6 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: isLiked ? "PUT" : "DELETE",
       headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  avatarEdit({ avatar }) {
-    console.log(avatar);
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify({ avatar: avatar }),
     })
       .then(this._checkResponse)
       .catch((err) => {
@@ -102,7 +93,33 @@ export default class Api {
       });
   }
 
-  updateUserAvatar({ data }) {
+  updateUserLike({ isLiked }) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        isLiked: isLiked,
+      }),
+    })
+      .then(this._checkResponse)
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  avatarEdit({ avatar }) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({ avatar }),
+    })
+      .then(this._checkResponse)
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  /*updateUserAvatar(data) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
@@ -114,5 +131,5 @@ export default class Api {
       .catch((err) => {
         console.error(err);
       });
-  }
+  }*/
 }
