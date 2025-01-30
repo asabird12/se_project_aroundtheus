@@ -121,15 +121,15 @@ function handleAddCardSubmit(formValues) {
     });
 }
 
-function handleAvatarEdit(evt) {
-  evt.preventDefault();
+function handleAvatarEdit(data) {
+  //evt.preventDefault();
   changeProfilePopup.loadingState(true);
   console.log(data);
   api
     .avatarEdit(data)
-    .then((updatedData) => {
+    .then((data) => {
       userProfileInfo.setUserAvatar({
-        profileAvatar: updatedData.avatar,
+        profileAvatar: data.avatar,
       });
       changeProfilePopup.close();
     })

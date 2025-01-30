@@ -75,5 +75,6 @@ export default class Card {
     this.updateLike;
     this.isLiked();
     this.getId();
+    this.setUserId();
   }
 }
