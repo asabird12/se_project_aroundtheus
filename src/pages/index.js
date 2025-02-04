@@ -72,6 +72,7 @@ const userProfileInfo = new UserInfo({
   profileName: ".profile__title",
   profileJob: ".profile__subtitle",
   profileAvatar: ".profile__image",
+  isLiked: ".card__like-button",
 });
 
 api
@@ -82,6 +83,7 @@ api
       profileName: data.name,
       profileJob: data.about,
       profileAvatar: data.avatar,
+      isLiked: data.isLiked,
     });
   })
   .catch((err) => console.error(err));
@@ -193,16 +195,10 @@ function handleLikeButton(card, cardId, isLiked) {
     .then(() => {
       card.updateLike();
     })
+
     .catch((err) => {
       console.error(err);
     });
 
-  api
-    .updateUserLike(isLiked)
-    .then(() => {
-      card.setUserId();
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  api.updateUserLike(isLiked);
 }

@@ -32,13 +32,14 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  updateUserInfo({ name, about }) {
+  updateUserInfo({ name, about, avatar }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         name: name,
         about: about,
+        avatar: avatar,
       }),
     })
       .then(this._checkResponse)
@@ -93,8 +94,8 @@ export default class Api {
       });
   }
 
-  updateUserLike({ isLiked }) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
+  updateUserLike(isLiked) {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({

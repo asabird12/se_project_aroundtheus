@@ -73,7 +73,6 @@ export default class Card {
 
   handleLikeButton() {
     this.updateLike;
-    this.isLiked();
     this.getId();
     this.setUserId();
   }
