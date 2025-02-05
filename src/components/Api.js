@@ -94,7 +94,7 @@ export default class Api {
       });
   }
 
-  updateUserLike(isLiked) {
+  /*updateUserLike(isLiked) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -106,7 +106,7 @@ export default class Api {
       .catch((err) => {
         console.error(err);
       });
-  }
+  }*/
 
   avatarEdit({ avatar }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {

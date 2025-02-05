@@ -199,6 +199,4 @@ function handleLikeButton(card, cardId, isLiked) {
     .catch((err) => {
       console.error(err);
     });
-
-  api.updateUserLike(isLiked);
 }
