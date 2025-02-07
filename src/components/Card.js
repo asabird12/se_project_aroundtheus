@@ -45,9 +45,9 @@ export default class Card {
     this._cardElement.querySelector(".card__title").textContent = this._name;
     this._cardImageElement.src = this._link;
     this._cardImageElement.alt = this._name;
+
     if (this._isLiked) {
       this._likeButton.classList.add("card__like-button_active");
-      this.isLiked();
     }
 
     this._setEventListeners();
@@ -59,8 +59,9 @@ export default class Card {
     this._likeButton.classList.toggle("card__like-button_active");
   }
 
-  isLiked() {
-    return this._isLiked;
+  setLikeStatus(isLiked) {
+    this.isLiked = isLiked;
+    this.updateLike();
   }
 
   getId() {

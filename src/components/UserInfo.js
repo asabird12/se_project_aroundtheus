@@ -15,11 +15,9 @@ export default class UserInfo {
     };
   }
 
-  setUserInfo({ profileName, profileJob, profileAvatar, isLiked }) {
+  setUserInfo({ profileName, profileJob, profileAvatar }) {
     this._profileName.textContent = profileName;
     this._profileJob.textContent = profileJob;
-    this._profileAvatar.src = profileAvatar;
-    this._isLiked = isLiked;
 
     //takes new user data and adds it to the page
     //method should be used after successful submission of the profile form
@@ -27,9 +25,5 @@ export default class UserInfo {
 
   setUserAvatar(avatar) {
     this._profileAvatar.src = avatar.profileAvatar;
-  }
-
-  setLikeStatus(isLiked) {
-    this._isLiked = isLiked.isLiked;
   }
 }

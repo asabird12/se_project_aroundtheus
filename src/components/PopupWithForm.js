@@ -29,7 +29,7 @@ export default class PopupWithForm extends Popup {
     return this._popupForm;
   }
 
-  loadingState(isLoading, loadingText = "Saving...") {
+  setLoadingState(isLoading, loadingText = "Saving...") {
     if (isLoading) {
       this._submitButton.textContent = loadingText;
     } else {
@@ -42,7 +42,6 @@ export default class PopupWithForm extends Popup {
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this._popupForm.reset();
     });
   }
 }

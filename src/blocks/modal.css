@@ -51,6 +51,11 @@
   height: 181px;
 }
 
+.modal__container_avatar {
+  height: 272px;
+  width: 430px;
+}
+
 .modal__image {
   max-width: 75vw;
   max-height: 75vh;
