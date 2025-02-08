@@ -231,3 +231,14 @@
     line-height: 16.94px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .modal__form_avatar {
+    padding: 0;
+    margin-top: 36px;
+  }
+
+  .modal__header_avatar {
+    padding-left: 0;
+  }
+}

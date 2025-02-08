@@ -114,6 +114,7 @@ function handleAddCardSubmit(formValues) {
     .then((newCard) => {
       cardCreator.addItem(getCardElement(newCard));
       cardPopup.close();
+      cardPopup.resetForm();
       cardFormValidator.disableButton();
     })
     .catch((err) => console.error(err))
