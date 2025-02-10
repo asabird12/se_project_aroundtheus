@@ -96,6 +96,7 @@ function handleProfileSubmit(formValues) {
       userProfileInfo.setUserInfo({
         profileName: updatedData.name,
         profileJob: updatedData.about,
+        profileAvatar: updatedData.avatar,
       });
       profilePopup.close();
     })
